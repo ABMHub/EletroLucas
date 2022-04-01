@@ -7,9 +7,10 @@ export default function Button(props) {
     const { onPress, title = 'Save' } = props;
     return (
 
-        <Pressable style={styles.button} onPress={onPress}>
-          <Image source={require('../../../assets/sofa.png')}></Image>
-        </Pressable>
+      <Pressable style={styles.button} onPress={onPress}>
+        <Image source={require('../../../assets/sofa.png')} style={styles.img} />
+        <View><Text>teste</Text></View>
+      </Pressable>
       
 
     );

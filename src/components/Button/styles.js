@@ -5,12 +5,14 @@ const styles = StyleSheet.create({
     button: {
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 12,
-      paddingHorizontal: 32,
+      // paddingVertical: 12,
+      // paddingHorizontal: 32,
       borderRadius: 4,
       elevation: 3,
-      height: '5%',
-      width: '10%'
+      backgroundColor: "#fdfdfd",
+      height: '25%',
+      width: '25%',
+      padding: 3
     },
     text: {
       fontSize: 16,
@@ -18,6 +20,10 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       letterSpacing: 0.25,
       color: 'white',
+    },
+    img: {
+      height: '80%',
+      width: '80%'
     },
   });
 
