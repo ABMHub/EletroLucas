@@ -4,7 +4,7 @@ import Header from "../../components/Navbar/navbar.js";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default function MainPage({navigation}) {
+export default function TestPage( {navigation} ) {
   return (
     <>
       <Header navigation={navigation}/>
@@ -12,12 +12,8 @@ export default function MainPage({navigation}) {
         <View>
           <Text style={styles.test}>oi</Text>
         </View>
-        <Text>Home page</Text>
+        <Text>Test Page</Text>
         <StatusBar style="auto" />
-        <Button
-          onPress={() => navigation.navigate('Test')}
-          title="Go to notifications"
-        />
       </View>
     </>
   );
