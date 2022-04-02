@@ -1,19 +1,31 @@
 import styles from "./styles.js"
 import Header from "../../components/Navbar/navbar.js";
+import Button from "../../components/Button/button.js";
 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 
-export default function MainPage() {
+
+export default function MainPage({navigation}) {
   return (
     <>
-      <Header />
+      <Header navigation={navigation}/>
       <View style={styles.container}>
         <View>
           <Text style={styles.test}>Que massa!</Text>
         </View>
-        <Text>Open up App.js to start sus on your app!</Text>
+        <Text>Home page</Text>
         <StatusBar style="auto" />
+        <View style={styles.button_line}>
+          <Button
+            onPress={() => navigation.navigate('Test')}
+            title="Go to notifications"
+          />
+          <Button
+            onPress={() => navigation.navigate('Test')}
+            title="Go to notifications"
+          />
+        </View>
       </View>
     </>
   );
