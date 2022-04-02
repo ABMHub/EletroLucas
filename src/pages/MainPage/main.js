@@ -9,13 +9,12 @@ import { StyleSheet, Text, View} from 'react-native';
 export default function MainPage({navigation}) {
   return (
     <>
-      <Header navigation={navigation}/>
+      <Header navigation={navigation} current_page={"Home"}/>
       <View style={styles.container}>
         <View>
           <Text style={styles.test}>Que massa!</Text>
         </View>
         <Text>Home page</Text>
-        <StatusBar style="auto" />
         <View style={styles.button_line}>
           <Button
             onPress={() => navigation.navigate('Test')}

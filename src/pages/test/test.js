@@ -7,13 +7,12 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 export default function TestPage( {navigation} ) {
   return (
     <>
-      <Header navigation={navigation}/>
+      <Header navigation={navigation} current_page={"Test"}/>
       <View style={styles.container}>
         <View>
           <Text style={styles.test}>oi</Text>
         </View>
         <Text>Test Page</Text>
-        <StatusBar style="auto" />
       </View>
     </>
   );
