@@ -3,15 +3,18 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
   test: {
-    color: 'green'
+    color: 'white',
+    fontSize: 30
   },
-  container: {
-    flex: 1,
-    backgroundColor: 'blue',
-    alignItems: 'center',
-    justifyContent: 'center',
-                                                                        
+  buttons: {
+    flexDirection: 'row',
+    paddingTop: 35,
+    paddingLeft: 20
   },
+  imgBackground: {
+    height: '100%',
+    width: "100%"
+  }
 });
 
 export default styles
