@@ -3,26 +3,22 @@ import Header from "../../components/Navbar/navbar.js";
 import Button from "../../components/Button/button.js";
 import RenderButton from "./RenderButton.js";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
 
 
 export default function MainPage({navigation}) {
-  const a = (
+  var json = require('./data.json');
+  return (
     <>
       <Header navigation={navigation}/>
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.test}>oi</Text>
-        </View>
-        <Text>Home page</Text>
+      <ScrollView style={styles.container}>
         <StatusBar style="auto" />
 
-        <View style={styles.button_line}>
-          {RenderButton([{"id_aparelho": 1,"id_icon": 1,"nome": "Lampada"}, {"id_aparelho": 1,"id_icon": 1,"nome": "Lampada"}, {"id_aparelho": 1,"id_icon": 1,"nome": "Lampada"}], navigation)}
+        <View style={styles.button_grid}>
+          {RenderButton(json, navigation)}
         </View>
-      </View>
+      </ScrollView>
     </>
   );
-  return a
 }
 

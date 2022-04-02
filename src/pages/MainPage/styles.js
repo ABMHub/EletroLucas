@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     // justifyContent: 'center',
   },
-  button_line: {
+  button_grid: {
     // backgroundColor: "black",
     // alignItems: 'center',
     // justifyContent: 'center',
