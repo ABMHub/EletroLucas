@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     // display: 'flex',
     width: "100%",
     flexDirection: 'row',
-    padding: 10
+    padding: 10,
+    flexWrap: "wrap"
   },
 });
 

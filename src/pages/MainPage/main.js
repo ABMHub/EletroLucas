@@ -1,13 +1,13 @@
 import styles from "./styles.js"
 import Header from "../../components/Navbar/navbar.js";
 import Button from "../../components/Button/button.js";
-
+import RenderButton from "./RenderButton.js";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View} from 'react-native';
 
 
 export default function MainPage({navigation}) {
-  return (
+  const a = (
     <>
       <Header navigation={navigation}/>
       <View style={styles.container}>
@@ -16,17 +16,13 @@ export default function MainPage({navigation}) {
         </View>
         <Text>Home page</Text>
         <StatusBar style="auto" />
+
         <View style={styles.button_line}>
-          <Button
-            onPress={() => navigation.navigate('Test')}
-            title="Go to notifications"
-          />
-          <Button
-            onPress={() => navigation.navigate('Test')}
-            title="Go to notifications"
-          />
+          {RenderButton([{"id_aparelho": 1,"id_icon": 1,"nome": "Lampada"}, {"id_aparelho": 1,"id_icon": 1,"nome": "Lampada"}, {"id_aparelho": 1,"id_icon": 1,"nome": "Lampada"}], navigation)}
         </View>
       </View>
     </>
   );
+  return a
 }
+
