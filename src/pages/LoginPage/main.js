@@ -1,9 +1,9 @@
 import {LoginImage, styles} from "./styles.js"
 import React from "react"
 import { StatusBar } from 'expo-status-bar';
-import {ImageBackground, Text, View, TextInput, SafeAreaView} from 'react-native';
+import {ImageBackground, Text, View, TextInput, SafeAreaView, Button} from 'react-native';
 
-export default function Login() {
+export default function LoginPage({navigation}) {
     var image = require ("../../components/bkgimage/login.jpg");
     const UselessTextInput = () => {
         const [login, onChangeText] = React.useState("Login");
@@ -28,14 +28,24 @@ export default function Login() {
         );
     }
     return (
-        <>
             <View style={styles.container}>
                 <ImageBackground source={image} resizeMode= "cover" style={LoginImage.container}>
                     <Text style={styles.title}>ABMHUB</Text>
-                    <UselessTextInput></UselessTextInput>
+                    <View style={styles.bkg}>
+                        <UselessTextInput></UselessTextInput>
+                        <View style={{padding:5}}></View>
+                        <Button
+                            onPress={() => navigation.navigate('Home')}
+                            title="Entrar">
+                        </Button>
+                        <View style={{padding:5}}></View>
+                        <Button
+                            onPress={() => navigation.navigate('Home')}
+                            title="Cadastrar">
+                        </Button>
+                    </View>
                     <StatusBar style="auto" />
                 </ImageBackground>
             </View>
-        </>
     );
   }

@@ -17,6 +17,16 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    bkg: {
+    position: 'relative',
+      marginLeft:'5%',
+      marginRight: '5%',
+      justifyContent: 'center',
+      borderRadius: 6,
+      elevation: 3,
+      backgroundColor: "#fdfdfd",
+      margin: 5
+    }
 });
 
 export const LoginImage = StyleSheet.create({
