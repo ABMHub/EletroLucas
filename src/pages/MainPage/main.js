@@ -17,12 +17,12 @@ export default function MainPage({navigation}) {
         <Text>Home page</Text>
         <View style={styles.button_line}>
           <Button
-            onPress={() => navigation.navigate('Test')}
-            title="Go to notifications"
+            onPress={() => navigation.navigate('LampConfig')}
+            title="Cofigurações da Lâmpada"
           />
           <Button
             onPress={() => navigation.navigate('Test')}
-            title="Go to notifications"
+            title="Página de Teste"
           />
         </View>
       </View>

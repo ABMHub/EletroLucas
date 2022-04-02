@@ -9,11 +9,14 @@ export default function Header({ navigation, current_page }) {
 
   let img_path = null
   let page_name = ""
-  console.log(current_page)
   switch(current_page) {
     case "Home":
       img_path = require("./../../../assets/home.png")
       page_name = "Página Principal"
+      break
+    case "LampConfig":
+      img_path = require("./../../../assets/room.png")
+      page_name = "Configurações da\nLâmpada"
       break
     case "Test":
       img_path = require("./../../../assets/adaptive-icon.png")
