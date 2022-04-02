@@ -10,9 +10,9 @@ export default function MainPage() {
       <Header />
       <View style={styles.container}>
         <View>
-          <Text style={styles.test}>oi</Text>
+          <Text style={styles.test}>Que massa!</Text>
         </View>
-        <Text>Open up App.js to start wdasdasdaorking on your app!</Text>
+        <Text>Open up App.js to start sus on your app!</Text>
         <StatusBar style="auto" />
       </View>
     </>
