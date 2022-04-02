@@ -10,7 +10,7 @@ export default function MainPage({navigation}) {
   var json = require('./data.json');
   return (
     <>
-      <Header navigation={navigation}/>
+      <Header navigation={navigation} current_page={"Home"} />
       <ScrollView style={styles.container}>
         <StatusBar style="auto" />
 
