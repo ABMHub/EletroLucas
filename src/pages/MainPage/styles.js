@@ -7,9 +7,20 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    width: "100%",
+    // display: 'flex',
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  button_line: {
+    // backgroundColor: "black",
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // display: 'flex',
+    width: "100%",
+    flexDirection: 'row',
+    padding: 10
   },
 });
 

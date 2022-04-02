@@ -10,9 +10,11 @@ const styles = StyleSheet.create({
       borderRadius: 4,
       elevation: 3,
       backgroundColor: "#fdfdfd",
-      height: '25%',
-      width: '25%',
-      padding: 3
+      margin: 5
+    },
+    button_div: {
+      width: '50%',
+      aspectRatio: 1
     },
     text: {
       fontSize: 16,

@@ -16,10 +16,16 @@ export default function MainPage({navigation}) {
         </View>
         <Text>Home page</Text>
         <StatusBar style="auto" />
-        <Button
-          onPress={() => navigation.navigate('Test')}
-          title="Go to notifications"
-        />
+        <View style={styles.button_line}>
+          <Button
+            onPress={() => navigation.navigate('Test')}
+            title="Go to notifications"
+          />
+          <Button
+            onPress={() => navigation.navigate('Test')}
+            title="Go to notifications"
+          />
+        </View>
       </View>
     </>
   );
