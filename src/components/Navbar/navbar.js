@@ -19,6 +19,6 @@ export default function Header({ navigation }) {
   );
 }
 
-export function TaskBar({navigation}) {
-
+export function TaskBar(images, highlited, { navigation }) {
+    
 }
