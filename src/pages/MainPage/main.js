@@ -12,7 +12,7 @@ export default function MainPage({navigation}) {
       <Header navigation={navigation} current_page={"Home"}/>
       <View style={styles.container}>
         <View>
-          <Text style={styles.test}>oi</Text>
+          <Text style={styles.test}>Que massa!</Text>
         </View>
         <Text>Home page</Text>
         <View style={styles.button_line}>

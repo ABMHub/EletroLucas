@@ -6,13 +6,13 @@ import { BackArrow } from '../../../assets/svg.js';
 
 
 export default function Button(props) {
-  const { onPress, title = 'Save' } = props;
+  const {onPress, title = 'PLACEHOLDER'} = props;
   return (
     <View style={styles.button_div}>
       <Pressable style={styles.button} onPress={onPress}>
         {/* <Image source={banheiro} style={styles.img} /> */}
         <Banheiro height={"70%"} width={"70%"}/>
-        <View><Text>teste</Text></View>
+        <View><Text>{title}</Text></View>
       </Pressable>
     </View>
   );

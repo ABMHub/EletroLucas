@@ -36,3 +36,7 @@ export default function Header({ navigation, current_page }) {
     </View>
   );
 }
+
+export function TaskBar({navigation}) {
+
+}
