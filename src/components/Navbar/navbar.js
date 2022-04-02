@@ -18,3 +18,7 @@ export default function Header({ navigation }) {
     </View>
   );
 }
+
+export function TaskBar({navigation}) {
+
+}

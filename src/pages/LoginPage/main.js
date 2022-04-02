@@ -33,16 +33,12 @@ export default function LoginPage({navigation}) {
                     <Text style={styles.title}>ABMHUB</Text>
                     <View style={styles.bkg}>
                         <UselessTextInput></UselessTextInput>
-                        <View style={{padding:5}}></View>
-                        <Button
-                            onPress={() => navigation.navigate('Home')}
-                            title="Entrar">
-                        </Button>
-                        <View style={{padding:5}}></View>
-                        <Button
-                            onPress={() => navigation.navigate('Home')}
-                            title="Cadastrar">
-                        </Button>
+                         <View style={styles.btt}>
+                            <Button
+                                onPress={() => navigation.navigate('Home')}
+                                title="Entrar">
+                            </Button>
+                        </View>
                     </View>
                     <StatusBar style="auto" />
                 </ImageBackground>

@@ -13,19 +13,27 @@ export const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
+        borderRadius: 6,
     },
     container: {
         flex: 1,
     },
     bkg: {
-    position: 'relative',
-      marginLeft:'5%',
-      marginRight: '5%',
-      justifyContent: 'center',
-      borderRadius: 6,
-      elevation: 3,
-      backgroundColor: "#fdfdfd",
-      margin: 5
+        position: 'relative',
+        marginLeft:'5%',
+        marginRight: '5%',
+        justifyContent: 'center',
+        borderRadius: 6,
+        elevation: 3,
+        backgroundColor: "#fdfdfd",
+        margin: 5
+    },
+    btt: {
+        position: 'relative',
+        marginLeft:'5%',
+        marginRight: '5%',
+        justifyContent: 'center',
+        padding: 5,
     }
 });
 
