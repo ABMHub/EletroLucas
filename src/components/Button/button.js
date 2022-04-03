@@ -25,14 +25,15 @@ export function BackButton({onPress}) {
         <BackArrow height={32} width={32}/>
       </Pressable>
     </View>
-  )
+  );
+}
 
 export function ImageButton(props) {
   const {onPress, source} = props;
   return (
     <View style={styles.button_div}>
       <Pressable style={styles.imgbutton} onPress={onPress}>
-      <Banheiro height={"70%"} width={"70%"}/>
+        <Image source={source}></Image>
       </Pressable>
     </View>
   );
@@ -43,7 +44,7 @@ export function SvgButton(props) {
   return (
     <View style={styles.button_div}>
       <Pressable style={styles.imgbutton} onPress={onPress}>
-      {svg}
+        {svg}
       </Pressable>
     </View>
   );

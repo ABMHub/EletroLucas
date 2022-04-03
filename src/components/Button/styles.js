@@ -31,9 +31,6 @@ const styles = StyleSheet.create({
     imgbutton: {
       alignItems: 'center',
       justifyContent: 'center',
-      // paddingVertical: 12,
-      // paddingHorizontal: 32,
-      //backgroundColor: 'transparent',
     },
   });
 
