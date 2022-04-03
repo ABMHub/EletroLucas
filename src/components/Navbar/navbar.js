@@ -1,9 +1,9 @@
 import styles from "./styles.js"
-
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Dimensions } from 'react-native';
 import { ImageBackground } from "react-native";
 import { BackButton } from "../Button/button.js";
+import { useRoute } from '@react-navigation/native';
 
 export default function Header({ navigation, current_page }) {
 
@@ -24,19 +24,18 @@ export default function Header({ navigation, current_page }) {
       page_name = "Página Indefinida"
   }
 
+export function TaskBar(/*images, highlited,*/ route) {
+  const current = useRoute().name
+  let images = [
+
+  ] // todos os paths
+  switch(current){
+    case 'Home':
+      break;
+  }
   return (
-    <View style={{height: Math.floor(Dimensions.get('window').height * 0.25)}}>
-      <ImageBackground source={img_path} style={styles.imgBackground}>
-        <View style={styles.buttons}>
-          <BackButton onPress={() => navigation.goBack()} />
-          <View style={{paddingLeft: 10}}><Text style={styles.test}>{page_name}</Text></View>        
-        </View>
-      <StatusBar style="auto" />
-      </ImageBackground>
-    </View>
-  );
-}
-
-export function TaskBar({navigation}) {
-
+    <View>
+      
+    </View>   
+  );  
 }
