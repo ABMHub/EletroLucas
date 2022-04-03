@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
       backgroundColor: "#fdfdfd",
       margin: 5
     },
+    
     button_div: {
       width: '50%',
       aspectRatio: 1
@@ -26,6 +27,13 @@ const styles = StyleSheet.create({
     img: {
       height: '80%',
       width: '80%'
+    },
+    imgbutton: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      // paddingVertical: 12,
+      // paddingHorizontal: 32,
+      //backgroundColor: 'transparent',
     },
   });
 

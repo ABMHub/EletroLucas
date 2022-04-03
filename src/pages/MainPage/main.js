@@ -1,6 +1,6 @@
 import styles from "./styles.js"
-import Header from "../../components/Navbar/navbar.js";
-import Button from "../../components/Button/button.js";
+import Header,{TaskBar} from "../../components/Navbar/navbar.js";
+import Button,{ImageButton, SvgButton} from "../../components/Button/button.js";
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View} from 'react-native';
@@ -21,11 +21,16 @@ export default function MainPage({navigation}) {
             onPress={() => navigation.navigate('Test')}
             title="Go to notifications"
           />
-          <Button
+          <SvgButton
             onPress={() => navigation.navigate('Test')}
-            title="Go to notifications"
+            source={{uri:'../../../assets/sofa.svg'}}
+          />
+          <ImageButton 
+            onPress={() => navigation.navigate('Test')}
+            source={{uri:'../../../assets/sofa.svg'}}
           />
         </View>
+        <TaskBar/>
       </View>
     </>
   );

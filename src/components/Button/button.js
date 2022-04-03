@@ -16,3 +16,25 @@ export default function Button(props) {
     </View>
   );
 }
+
+export function ImageButton(props) {
+  const {onPress, source} = props;
+  return (
+    <View style={styles.button_div}>
+      <Pressable style={styles.imgbutton} onPress={onPress}>
+      <Banheiro height={"70%"} width={"70%"}/>
+      </Pressable>
+    </View>
+  );
+}
+
+export function SvgButton(props) {
+  const {onPress, svg} = props;
+  return (
+    <View style={styles.button_div}>
+      <Pressable style={styles.imgbutton} onPress={onPress}>
+      {svg}
+      </Pressable>
+    </View>
+  );
+}
