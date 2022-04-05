@@ -25,8 +25,14 @@ const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: "#fdfdfd",
     margin: 5
-},
-
+  },
+  footer: {
+    flex:0.10,
+    position: 'relative',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    backgroundColor: '#F7F7F7',
+  },
 });
 
 export default styles
