@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   sliderView: {
-    padding: "5%"
+    padding: "5%",
+    paddingBottom: 0
   },
   sliderText: {
     color: "black",
