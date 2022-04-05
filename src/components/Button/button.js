@@ -31,22 +31,18 @@ export function BackButton({onPress}) {
 export function ImageButton(props) {
   const {onPress, source} = props;
   return (
-    <View style={styles.button_div}>
-      <Pressable style={styles.imgbutton} onPress={onPress}>
+      <Pressable style={styles.img_button} onPress={onPress}>
         <Image source={source}></Image>
       </Pressable>
-    </View>
   );
 }
 
 export function SvgButton(props) {
   const {onPress, svg} = props;
   return (
-    <View style={styles.button_div}>
-      <Pressable style={styles.imgbutton} onPress={onPress}>
+      <Pressable style={styles.svg_button} onPress={onPress}>
         {svg}
       </Pressable>
-    </View>
   );
 
 }

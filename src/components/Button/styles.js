@@ -28,9 +28,14 @@ const styles = StyleSheet.create({
       height: '80%',
       width: '80%'
     },
-    imgbutton: {
+    svg_button: {
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    img_button: {
+      width:undefined,
+      height:undefined,
+      resizeMode:"contain",
     },
   });
 

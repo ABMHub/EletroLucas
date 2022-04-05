@@ -1,14 +1,12 @@
-import styles from "./styles.js"
+import styles from './styles.js';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Dimensions } from 'react-native';
 import { ImageBackground } from "react-native";
-import { BackButton } from "../Button/button.js";
+import { BackButton, ImageButton, SvgButton} from "../Button/button.js";
 import { useRoute } from '@react-navigation/native';
-import { ImageButton, SvgButton} from "../Button/button.js";
-import Svg from "react-native-svg";
+import { SvgTask, PressedSvgTask } from "../../../assets/svg.js";
 
 export default function Header({ navigation, current_page }) {
-
   let img_path = null
   let page_name = ""
   console.log(current_page)
@@ -39,12 +37,10 @@ export default function Header({ navigation, current_page }) {
 }
 export function TaskBar({navigation}) {
   const current = useRoute().name
-  let images = [
-    
-  ] // todos os paths
-  let isSvg = [
-    true, false, false, true, true
-  ]
+  let images = [] // todos os paths
+  for(i = 1; i <= 5; i++){
+    images.push(SvgTask(i,40,40))
+  }
   let pathName = [
     'Home',
     'Device',
@@ -52,39 +48,26 @@ export function TaskBar({navigation}) {
     'Diagnosis',
     'Configuration'
   ]
-  switch(current){
-    
-    case 'Home':
-      images[0] = {}
+  for(i = 0; i < 5; i++){
+    if(current == pathName[i]){
+      images[i] = PressedSvgTask(i+1,40,40)
+      select = i
       break
-    case 'Device':
-      images[1] = {}
-      break  
-    case 'Group':
-      images[2] = {}
-      break
-    case 'Diagnosis':
-      images[3] = {}
-      break
-    case 'Configuration':
-      images[4] = {}
-      break
-  }
-  for(i = 0; i < images.length; i++){
-    if(isSvg){
-      images[i] = <SvgButton 
-        onPress = {() => navigation.navigate(pathName[i])}
-        svg={images[i]}
-      />
-    }else{
-      images[i] = <ImageButton
-        onPress = {() => navigation.navigate(pathName[i])}
-        source={images[i]}
-      />
     }
   }
+  for(i = 0; i < images.length; i++){
+    let onPress = () => navigation.navigate(pathName[i])
+    if(i == select){
+      onPress = () => 1;
+    }
+    images[i] = <SvgButton 
+      onPress = {onPress}
+      svg={images[i]}
+      key={i}
+    />
+  }
   return (
-    <View>
+    <View style={styles.footer}>
       {images}
     </View>   
   );  
