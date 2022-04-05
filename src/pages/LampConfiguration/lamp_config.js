@@ -5,11 +5,17 @@ import { SvgXml } from "react-native-svg";
 import styles from "./styles.js";
 import React, { useState } from 'react';
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
-
+import { Slider } from "@miblanchard/react-native-slider";
 
 export default function LampConfig({navigation}) {
 
   const [online, setOnline] = useState(false);
+  const [lightValue, setLightValue] = useState(0);
+
+  let green = lightValue > 0.5 ? 255 - Math.floor((lightValue-0.5)*255)*2 : 255
+  let red = lightValue > 0.5 ? 255 : Math.floor((lightValue)*255)*2
+  let gradient_color = "rgb(" + red + "," + green + ",0)"
+
 
   let color = online ? "green" : "red"
 
@@ -18,6 +24,8 @@ export default function LampConfig({navigation}) {
   <path d="M49 8.4375V33.75" stroke="` + color + `" stroke-width="4" stroke-miterlimit="10"/>
   </svg>
   `
+
+  
 
   return (
     <>
@@ -28,6 +36,20 @@ export default function LampConfig({navigation}) {
             <Pressable style={styles.button} onPress={() => setOnline(!online)}>
               <SvgXml xml={power} height={128} width={128} style={styles.svg}/>
             </Pressable>
+          </View>
+          <View style={{alignItems: "center"}}>
+            <Text style={{...styles.sliderText, fontSize:30}}>{online ? "Online" : "Offline"}</Text>
+          </View>
+        </View>
+
+        <View style={styles.sliderView}>
+          <Slider 
+            value={lightValue}
+            onValueChange={(value) => setLightValue(value)}
+            trackStyle={{backgroundColor: gradient_color, height: 7}}
+          />
+          <View style={{alignItems: "center"}}>
+            <Text style={styles.sliderText}>{Math.floor(lightValue*100)}%</Text>
           </View>
         </View>
       </View>

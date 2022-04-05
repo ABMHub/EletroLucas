@@ -20,8 +20,15 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-
-  }
+  },
+  sliderView: {
+    padding: "5%"
+  },
+  sliderText: {
+    color: "black",
+    fontSize: 40,
+    alignItems: 'center'
+  },
 });
 
 export default styles
