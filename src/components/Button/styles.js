@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
       color: "#67D1B1",
       marginBottom : 4,
       marginRight :0,
-      fontSize: 26
+      fontSize: 18
     },
 
     TxtButtonStyle: {
@@ -67,6 +67,33 @@ const styles = StyleSheet.create({
       padding: 10,
       justifyContent: 'space-between'
      
+    },
+
+    confirmStyle: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: '#ECECF5',
+      borderRadius: 5 ,
+      width: '60%',
+      elevation: 3,
+      //marginHorizontal: 10,
+      aspectRatio: 2,
+      padding: 10,
+      justifyContent: 'space-between'
+     
+    },
+
+    finishButton: {
+      //flexDirection: 'row',
+      alignSelf: 'flex-end',
+      backgroundColor: '#0073A6',
+      borderRadius: 5 ,
+      //width: '30%',
+      //aspectRatio: 4.5,
+      margin: 20,
+      padding:10,
+      elevation: 3,
+      justifyContent: 'space-between'
     },
 
     selectDeviceButtonStyle: {
