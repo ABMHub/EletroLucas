@@ -1,0 +1,92 @@
+[
+    {
+        "id_aparelho": 1,
+        "id_icon": 1,
+        "nome": "Item 1"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 2,
+        "nome": "Item 2"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 3,
+        "nome": "Item 3"
+    }, 
+    {
+        "id_aparelho": 1,
+        "id_icon": 1,
+        "nome": "Item 1"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 2,
+        "nome": "Item 2"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 3,
+        "nome": "Item 3"
+    }, 
+    {
+        "id_aparelho": 1,
+        "id_icon": 1,
+        "nome": "Item 1"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 2,
+        "nome": "Item 2"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 3,
+        "nome": "Item 3"
+    }, 
+    {
+        "id_aparelho": 1,
+        "id_icon": 1,
+        "nome": "Item 1"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 2,
+        "nome": "Item 2"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 3,
+        "nome": "Item 3"
+    }, 
+    {
+        "id_aparelho": 1,
+        "id_icon": 1,
+        "nome": "Item 1"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 2,
+        "nome": "Item 2"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 3,
+        "nome": "Item 3"
+    }, 
+    {
+        "id_aparelho": 1,
+        "id_icon": 1,
+        "nome": "Item 1"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 2,
+        "nome": "Item 2"
+    }, 
+    {
+        "id_aparelho": 3,
+        "id_icon": 3,
+        "nome": "Item 3"
+    }
+]

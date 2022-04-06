@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import {ImageBackground, Text, View, TextInput, SafeAreaView, Button} from 'react-native';
 
 export default function LoginPage({navigation}) {
-    var image = require ("../../components/bkgimage/login.jpg");
+    var image = require ("../../components/bkgimage/login.png");
     const UselessTextInput = () => {
         const [login, onChangeText] = React.useState("Login");
         const [senha, onChangeSenha] = React.useState(null);
@@ -40,6 +40,7 @@ export default function LoginPage({navigation}) {
                             </Button>
                         </View>
                     </View>
+
                     <StatusBar style="auto" />
                 </ImageBackground>
             </View>
