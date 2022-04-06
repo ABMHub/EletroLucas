@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { get } from 'react-native/Libraries/Utilities/PixelRatio';
 
-const getMyObject = async (key) => {
+export const getMyObject = async (key) => {
     try {
         const jsonValue = await AsyncStorage.getItem(key)
         return jsonValue != null ? JSON.parse(jsonValue) : null
@@ -10,7 +10,7 @@ const getMyObject = async (key) => {
     }
 }
 
-const setObjectValue = async (key, value) => {
+export const setObjectValue = async (key, value) => {
     try {
         const jsonValue = JSON.stringify(value)
         await AsyncStorage.setItem(key, jsonValue)
@@ -19,7 +19,7 @@ const setObjectValue = async (key, value) => {
     }
 }
 
-const removeValue = async (key) => {
+export const removeValue = async (key) => {
     try {
         let keys = await getAllKeys()
         for(let i = Number(key)+1; i < keys.length; i++){
@@ -43,7 +43,7 @@ const convertAndSort = (arr) => {
     return arr
 }
 
-const getAllKeys = async () => {
+export const getAllKeys = async () => {
     let keys = []
     try {
         keys = await AsyncStorage.getAllKeys()
@@ -53,7 +53,7 @@ const getAllKeys = async () => {
     }
 }
 
-const getAllJson = async (keys) => {
+export const getAllJson = async (keys) => {
     let values = []
     try {
         keys = await getAllKeys()
@@ -67,7 +67,7 @@ const getAllJson = async (keys) => {
     }
 }
 
-const clearAll = async () => {
+export const clearAll = async () => {
     try {
         await AsyncStorage.clear()
     } catch(e){
