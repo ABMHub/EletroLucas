@@ -23,6 +23,11 @@ const styles = StyleSheet.create({
     padding: 10,
     flexWrap: "wrap"
   },
+  buttonTextStyle: {
+    color: "black",
+    fontSize: 20
+  }
+
 
   // container: {
   //   flex: 1,

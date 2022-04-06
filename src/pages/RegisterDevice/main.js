@@ -1,8 +1,9 @@
-import styles from "./styles.js";
-import Header,{TaskBar} from "../../components/Navbar/navbar.js";
 import Button,{ImageButton, SvgButton, SvgTxtButton} from "../../components/Button/button.js";
+import Header,{TaskBar} from "../../components/Navbar/navbar.js";
+import styles from "./styles.js";
+
+import { StyleSheet, Text, View, ScrollView, Alert } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView} from 'react-native';
 
 export default function RegisterDevice({navigation}) {
     name_list = ["Smart TV", "Ar Condicionado", "Lâmpada", "Cafeteria", "Fechadura", "Outro"]
@@ -12,9 +13,10 @@ export default function RegisterDevice({navigation}) {
     {
       render_list.push(
         <SvgTxtButton
-          onPress={() => navigation.navigate('Test')}
+          onPress={name_list[i] == "Lâmpada" ? () => navigation.navigate('SelectDevice') : () => Alert.alert("Essa categoria não foi encontrada")}
           id={i}
           key={i}
+          text={name_list[i]}
         />
       )
     }
