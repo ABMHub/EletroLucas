@@ -68,6 +68,19 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between'
      
     },
+
+    selectDeviceButtonStyle: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderBottomWidth: 2,
+      borderColor: "gray",
+      borderRadius: 5 ,
+      width: '100%',
+      aspectRatio: 6,
+      padding: 10,
+      justifyContent: 'space-between'
+     
+    },
     
     SeparatorLine :{
       backgroundColor : '#fff',

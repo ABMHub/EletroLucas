@@ -7,6 +7,7 @@ import RegisterDevice from './src/pages/RegisterDevice/main';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LampConfig from './src/pages/LampConfiguration/lamp_config';
+import SelectDevice from './src/pages/RegisterDevice/deviceSelect';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginPage}/>
         <Stack.Screen name="RegisterDevice" component={RegisterDevice}/>
         <Stack.Screen name="LampConfig" component={LampConfig}/>
+        <Stack.Screen name="SelectDevice" component={SelectDevice}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
