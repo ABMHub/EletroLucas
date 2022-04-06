@@ -6,10 +6,10 @@ import { BackButton, ImageButton, SvgButton} from "../Button/button.js";
 import { useRoute } from '@react-navigation/native';
 import { SvgTask, PressedSvgTask } from "../../../assets/svg.js";
 
-export default function Header({ navigation, current_page }) {
+export default function Header({ navigation}) {
   let img_path = null
   let page_name = ""
-  console.log(current_page)
+  let current_page = useRoute().name
   switch(current_page) {
     case "Home":
       img_path = require("./../../../assets/home.png")
@@ -18,6 +18,10 @@ export default function Header({ navigation, current_page }) {
     case "Test":
       img_path = require("./../../../assets/adaptive-icon.png")
       page_name = "Página de Teste"
+      break
+    case "Diagnosis":
+      img_path = require("./../../../assets/eletric-panel.jpg")
+      page_name = "Painel de Eletricidade"
       break
     default:
       img_path = require("./../../../assets/favicon.png")
@@ -35,6 +39,11 @@ export default function Header({ navigation, current_page }) {
     </View>
   );
 }
+
+function navWraper(navigation, path, id) {
+  return () => navigation.navigate({name:path, key:id.toString()})
+}
+
 export function TaskBar({navigation}) {
   const current = useRoute().name
   let images = [] // todos os paths
@@ -46,8 +55,9 @@ export function TaskBar({navigation}) {
     'Device',
     'Group',
     'Diagnosis',
-    'Configuration'
+    'Home'
   ]
+  let select = -1
   for(i = 0; i < 5; i++){
     if(current == pathName[i]){
       images[i] = PressedSvgTask(i+1,40,40)
@@ -55,10 +65,11 @@ export function TaskBar({navigation}) {
       break
     }
   }
+  let i = -1
   for(i = 0; i < images.length; i++){
-    let onPress = () => navigation.navigate(pathName[i])
+    let onPress = navWraper(navigation, pathName[i], i)
     if(i == select){
-      onPress = () => 1;
+      onPress = () => 1
     }
     images[i] = <SvgButton 
       onPress = {onPress}
