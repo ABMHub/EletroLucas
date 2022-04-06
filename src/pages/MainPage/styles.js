@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     // justifyContent: 'center',
     // display: 'flex',
-    width: "100%",
+    //width: "100%",
     flexDirection: 'row',
     padding: 10,
     flexWrap: "wrap"

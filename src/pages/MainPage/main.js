@@ -7,6 +7,7 @@ import { StyleSheet, Text, View, ScrollView} from 'react-native';
 
 export default function MainPage({navigation}) {
   var json = require('./data.json');
+  
   return (
     <>
       <Header navigation={navigation} current_page={"Home"} />
@@ -15,7 +16,7 @@ export default function MainPage({navigation}) {
         <View style={styles.button_grid}>
           {RenderButton(json, navigation)}
         </View>
-      </ScrollView>
+      </ScrollView >
       <TaskBar navigation={navigation}/>
     </>
   );

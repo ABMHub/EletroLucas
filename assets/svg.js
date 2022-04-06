@@ -1,6 +1,6 @@
 import { SvgXml } from 'react-native-svg';
 
-export function Banheiro({width, height, id}) {
+export function Banheiro({width, height, id, style}) {
   let icon_image
   
   switch(id)
@@ -41,6 +41,7 @@ export function Banheiro({width, height, id}) {
     xml={icon_image}
     width={width}
     height={height}
+    style={style}
   />
   )
 }

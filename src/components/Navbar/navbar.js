@@ -14,6 +14,10 @@ export default function Header({ navigation, current_page }) {
       img_path = require("./../../../assets/home.png")
       page_name = "Página Principal"
       break
+    case "RegisterDevice": 
+      img_path = require("./../../../assets/registerDevice.png")
+      page_name = "Página de Cadastro"
+      break
     case "LampConfig":
       img_path = require("./../../../assets/room.png")
       page_name = "Configurações da\nLâmpada"
@@ -38,6 +42,7 @@ export default function Header({ navigation, current_page }) {
     </View>
   );
 }
+
 export function TaskBar({navigation}) {
   const current = useRoute().name
   let images = [] // todos os paths
@@ -46,7 +51,7 @@ export function TaskBar({navigation}) {
   }
   let pathName = [
     'Home',
-    'Device',
+    'RegisterDevice',
     'Group',
     'Diagnosis',
     'Configuration'
@@ -59,7 +64,7 @@ export function TaskBar({navigation}) {
     }
   }
   for(i = 0; i < images.length; i++){
-    let onPress = () => navigation.navigate(pathName[i])
+    let onPress = () => navigation.navigate('RegisterDevice')
     if(i == select){
       onPress = () => 1;
     }
