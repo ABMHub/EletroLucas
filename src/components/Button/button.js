@@ -1,8 +1,9 @@
-import React from 'react';
-import { Text, View, StyleSheet, Pressable, Image} from 'react-native';
-import { Banheiro } from '../../../assets/svg.js';
+import { BackArrow, RightArrow, Banheiro } from '../../../assets/svg.js';
 import styles from "./styles.js"
-import { BackArrow } from '../../../assets/svg.js';
+import React from 'react';
+
+import { VERTICAL } from 'react-native/Libraries/Components/ScrollView/ScrollViewContext';
+import { Text, View, StyleSheet, Pressable, Image, TouchableOpacity} from 'react-native';
 
 
 export default function Button(props) {
@@ -16,7 +17,6 @@ export default function Button(props) {
     </View>
   );
 }
-
 
 export function BackButton({onPress}) {
   return (
@@ -45,4 +45,36 @@ export function SvgButton(props) {
       </Pressable>
   );
 
+}
+
+export function SvgTxtButton(props) {
+  const {onPress, id, text} = props;
+  return (
+    <View style={{padding: 10}}>
+ 
+      <TouchableOpacity style={styles.TxtButtonStyle} onPress={onPress}>
+         <Text style={styles.TextStyle}> {text} </Text>   
+         
+         <View style={{height:'100%', aspectRatio:1}}>
+           <Banheiro  id={id}/>  
+         </View>
+         
+      </TouchableOpacity>
+    </View>
+
+  )
+
+}
+
+export function SelectDeviceButton({text, onPress, textStyle}){
+  return (
+    <View style={{padding: 10}}>
+      <TouchableOpacity style={styles.selectDeviceButtonStyle} onPress={onPress}>
+        <Text style={textStyle}> {text} </Text>     
+        <View style={{height:'100%', aspectRatio:1}}>
+          <RightArrow height={"100%"} width={"100%"}/>  
+        </View>         
+      </TouchableOpacity>
+    </View>
+  )
 }

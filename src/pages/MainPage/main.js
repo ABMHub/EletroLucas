@@ -15,9 +15,25 @@ export default function MainPage({navigation}) {
         <View style={styles.button_grid}>
           {RenderButton(json, navigation)}
         </View>
-      </ScrollView>
+      </ScrollView >
       <TaskBar navigation={navigation}/>
     </>
   );
 }
 
+// Modelo de como usar as funcoes da camada de persistencia
+// const [state, setState] = useState(0);
+// getMyObject().then((response) => {
+//     setState(response)
+// })
+
+// console.log("Aqui fora antes do x")
+// useEffect(() => {
+//     if(state){
+//     console.log("Vou bater no Lucas -> Ok")
+//     console.log(state)
+//     }
+//     else{
+//     console.log("Vou bater no Alequi -> Not Ok")
+//     }
+// })

@@ -15,6 +15,14 @@ export default function Header({ navigation}) {
       img_path = require("./../../../assets/home.png")
       page_name = "Página Principal"
       break
+    case "RegisterDevice": 
+      img_path = require("./../../../assets/registerDevice.png")
+      page_name = "Página de Cadastro"
+      break
+    case "LampConfig":
+      img_path = require("./../../../assets/room.png")
+      page_name = "Configurações da\nLâmpada"
+      break
     case "Test":
       img_path = require("./../../../assets/adaptive-icon.png")
       page_name = "Página de Teste"
@@ -52,7 +60,7 @@ export function TaskBar({navigation}) {
   }
   let pathName = [
     'Home',
-    'Device',
+    'RegisterDevice',
     'Group',
     'Diagnosis',
     'Home'
