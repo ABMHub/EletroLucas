@@ -9,7 +9,7 @@ export default function MainPage({navigation}) {
   var json = require('./data.json');
   return (
     <>
-      <Header navigation={navigation} current_page={"Home"} />
+      <Header navigation={navigation}/>
       <ScrollView style={styles.container}>
         <StatusBar style="auto" />
         <View style={styles.button_grid}>
