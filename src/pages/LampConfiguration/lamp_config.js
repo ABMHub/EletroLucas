@@ -2,19 +2,19 @@ import Header from "../../components/Navbar/navbar.js";
 import styles from "./styles.js";
 
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
-import { Slider } from "@miblanchard/react-native-slider";
-import { StyleSheet, Text, View, ScrollView} from 'react-native';
-import { SvgXml } from "react-native-svg";
-import React, { useState } from 'react';
-import { ColorPicker } from "react-native-color-picker";
 import { toHsv, fromHsv } from 'react-native-color-picker'
+import { Slider } from "@miblanchard/react-native-slider";
+import { ColorPicker } from "react-native-color-picker";
+import { SvgXml } from "react-native-svg";
+import { Text, View} from 'react-native';
+import React, { useState } from 'react';
 
 
 export default function LampConfig({navigation}) {
 
   const [online, setOnline] = useState(false);
   const [lightValue, setLightValue] = useState(0);
-  const [colorValue, setColorValue] = useState({h: 0, s: 0, v: 0,});
+  const [colorValue, setColorValue] = useState({h: 200, s: 1, v: 0.75});
 
   // Codigo para variar a cor do slider
   let green = lightValue > 0.5 ? 255 - Math.floor((lightValue-0.5)*255)*2 : 255
@@ -33,7 +33,7 @@ export default function LampConfig({navigation}) {
       <Header navigation={navigation} current_page={"LampConfig"}/>
       <View style={styles.container}>
 
-        <View style={styles.powerButtonViwe}>
+        <View style={styles.powerButtonView}>
           <View style={styles.powerButton}>
             <Pressable style={styles.button} onPress={() => setOnline(!online)}>
               <SvgXml xml={power} height={128} width={128} style={styles.svg}/>
@@ -56,14 +56,13 @@ export default function LampConfig({navigation}) {
         </View>
 
         <View style={{flex: 1, padding: 45, paddingTop:0}}>
-          <Text style={{color: 'black'}}>{fromHsv(colorValue)}</Text>
-          <ColorPicker // todo botar default color
+          <ColorPicker
             color={colorValue}
             onColorChange={color => setColorValue(color)}
-            // oldColor={colorValue}
             onColorSelected={color => alert(`Color selected: ${color}`)}
             style={{flex: 1}}
-          />
+            />
+            <Text style={{color: 'black', alignSelf: 'center', fontSize: 20, fontWeight: "bold"}}>{fromHsv(colorValue)}</Text>
         </View>
 
       </View>

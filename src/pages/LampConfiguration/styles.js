@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   svg: {
     color: 'black'
   },
-  powerButtonViwe: {
+  powerButtonView: {
     justifyContent: "center",
     alignItems: "center",
     paddingTop: 30
