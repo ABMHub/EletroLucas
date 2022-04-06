@@ -43,6 +43,11 @@ export default function Header({ navigation, current_page }) {
   );
 }
 
+function navWraper(navigation, path, id) {
+  return () => navigation.navigate({name:path, key:id.toString()})
+}
+
+
 export function TaskBar({navigation}) {
   const current = useRoute().name
   let images = [] // todos os paths
@@ -64,9 +69,9 @@ export function TaskBar({navigation}) {
     }
   }
   for(i = 0; i < images.length; i++){
-    let onPress = () => navigation.navigate('RegisterDevice')
+    let onPress = navWraper(navigation, pathName[i], i)
     if(i == select){
-      onPress = () => 1;
+      onPress = () => 1
     }
     images[i] = <SvgButton 
       onPress = {onPress}

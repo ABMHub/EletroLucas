@@ -8,16 +8,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",
-    // display: 'flex',
     backgroundColor: '#ECECF5',
-    // alignItems: 'center',
-    // justifyContent: 'center's,
   },
   button_grid: {
-    // backgroundColor: "black",
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // display: 'flex',
     width: "100%",
     flexDirection: 'row',
     padding: 10,
@@ -72,7 +65,6 @@ const styles = StyleSheet.create({
   //   width: 1,
   //   height: 40,
   // },
-
 });
 
 export default styles
