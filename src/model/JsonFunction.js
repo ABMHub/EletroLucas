@@ -76,7 +76,7 @@ export const getAllJson = async (keys) => {
     }
 }
 
-const clearAll = async () => {
+export const clearAll = async () => {
     try {
         await AsyncStorage.clear()
     } catch(e){
