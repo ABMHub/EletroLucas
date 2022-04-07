@@ -5,10 +5,12 @@ import { StatusBar } from 'expo-status-bar';
 import {Modal, StyleSheet, Text, View, ScrollView, TextInput,Alert} from 'react-native';
 import { useEffect } from "react/cjs/react.production.min";
 import React, {useState} from "react"
+import { setObjectValue } from "../../model/JsonFunction.js";
 
 function navigationWrapper(data, navigation, nickname = "") {
     data["Apelido"] = nickname
     //Salvar com a função do jv
+    setObjectValue(data.id, data)
 
     return () => {
         navigation.navigate('Home')
