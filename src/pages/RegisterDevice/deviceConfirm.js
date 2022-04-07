@@ -2,11 +2,25 @@ import styles from "./styles.js";
 import Header,{TaskBar} from "../../components/Navbar/navbar.js";
 import {ImageButton, SvgButton, SvgTxtButton, ConfirmButton, SelectDeviceButton, FinishButton} from "../../components/Button/button.js";
 import { StatusBar } from 'expo-status-bar';
-import {Modal, StyleSheet, Text, View, ScrollView, TextInput} from 'react-native';
+import {Modal, StyleSheet, Text, View, ScrollView, TextInput,Alert} from 'react-native';
 import { useEffect } from "react/cjs/react.production.min";
 import React, {useState} from "react"
 
-export default function DeviceConfirm({navigation}) {
+function navigationWrapper(data, navigation, nickname = "") {
+    data["Apelido"] = nickname
+    //Salvar com a função do jv
+
+    return () => {
+        navigation.navigate('Home')
+        Alert.alert("", "Dispositivo cadastrado com Sucesso", [], {cancelable: true})
+    }
+  }
+
+export default function DeviceConfirm({route, navigation}) {
+    // Recebe o id do dispositivo clicado
+    var {data} = route.params
+    //console.log("IOIOIOIOIOIO")
+    //console.log(data)
     //obter uma lista com todos os dados referentes ao dispositivo que foi clicado
     let key_list = ["Nome do dispositivo", "Fabricante", "Modelo", "ENCE", "Voltagem"]
     let name_list = ["<NOME>", "<FABRICANTE>", "<MODELO>", "<ENCE>", "<VOLTAGEM>"]
@@ -18,9 +32,9 @@ export default function DeviceConfirm({navigation}) {
     for (var i = 0; i < key_list.length; i++)
     {
         render_list.push(
-            <View style={styles.infoContainerStyle}> 
+            <View style={styles.infoContainerStyle} key={i}> 
                 <Text style={styles.labelTextStyle}> {key_list[i]} </Text>
-                <Text style={styles.infoTextStyle}> {name_list[i]} </Text>
+                <Text style={styles.infoTextStyle}> {data[key_list[i]]} </Text>
             </View>
         )
     }
@@ -38,10 +52,11 @@ export default function DeviceConfirm({navigation}) {
     const toggleModalVisibility = () => {
         setModalVisible(!isModalVisible);
     };
-    console.log(inputValue)
+
     return (
         <>
         <Header navigation={navigation} current_page={"RegisterDevice"}/>
+            
             <ScrollView style={styles.container}>
                 {/* <View style={styles.infoContainerStyle}>
                     <Text style={styles.labelTextStyle}> Apelido </Text>
@@ -68,8 +83,8 @@ export default function DeviceConfirm({navigation}) {
     
                             {/** This button is responsible to close the modal */}
                             <View style={styles.button_line}> 
-                                <ConfirmButton id={20} text={"Não"} onPress={toggleModalVisibility} />
-                                <ConfirmButton id={21} text={"Sim"} onPress={toggleModalVisibility} />
+                                <ConfirmButton id={20} text={"Não"} onPress={navigationWrapper(data, navigation)} />
+                                <ConfirmButton id={21} text={"Sim"} onPress={inputValue != "" ? navigationWrapper(data, navigation, inputValue) : () => Alert.alert("Nenhum apelido informado!")} />
                             </View>
                             {/** Aqui devo mudar o onPress pra redirecionar para outra pagina e enviar o 
                              * texto da input pro jv se o sujeito disser que quer colocar o apelido

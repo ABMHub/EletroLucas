@@ -15,6 +15,9 @@ export default function Header({ navigation}) {
       img_path = require("./../../../assets/home.png")
       page_name = "Página Principal"
       break
+    
+    case "SelectDevice":
+    case "DeviceConfirm":
     case "RegisterDevice": 
       img_path = require("./../../../assets/registerDevice.png")
       page_name = "Página de Cadastro"

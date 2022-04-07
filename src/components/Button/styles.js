@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     confirmStyle: {
       flexDirection: 'row',
       alignItems: 'center',
-      backgroundColor: '#ECECF5',
+      backgroundColor: '#fdfdfd',
       borderRadius: 5 ,
       width: '60%',
       elevation: 3,

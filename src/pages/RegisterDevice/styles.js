@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     backgroundColor: '#ECECF5',
+    marginBottom: 40
   },
   button_grid: {
     width: "100%",
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
                   { translateY: -90 }],
       height: height * 0.35,
       width: width * 0.8,
-      backgroundColor: "#f3f3f3",
+      backgroundColor: "#ECECF5",
       borderRadius: 7,
   },
   textInput: {
@@ -83,6 +84,7 @@ const styles = StyleSheet.create({
       paddingVertical: 8,
       paddingHorizontal: 16,
       borderColor: "rgba(0, 0, 0, 0.2)",
+      backgroundColor: "#fdfdfd",
       borderWidth: 1,
       marginBottom: 8,
   },
