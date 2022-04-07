@@ -18,8 +18,6 @@ export default function MainPage({navigation}) {
     }), []
   )
 
-  
-
   return (
     <>
       <Header navigation={navigation}/>
