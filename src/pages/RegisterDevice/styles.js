@@ -81,13 +81,28 @@ const styles = StyleSheet.create({
   textInput: {
       width: "80%",
       borderRadius: 5,
-      paddingVertical: 8,
+      //paddingVertical: 8,
       paddingHorizontal: 16,
       borderColor: "rgba(0, 0, 0, 0.2)",
       backgroundColor: "#fdfdfd",
       borderWidth: 1,
       marginBottom: 8,
   },
+
+  confirmationStyle: {
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
+    //top: "40%",
+    // left: "50%",
+    //elevation: 5,
+    // transform: [{ translateX: -(width * 0.4) }, 
+    //             { translateY: -90 }],
+    height: height * 0.25,
+    width: width * 0.8,
+    //backgroundColor: "#ECECF5",
+    borderRadius: 7,
+  }
 });
 
 export default styles

@@ -92,6 +92,19 @@ export function ConfirmButton(props) {
   )
 }
 
+export function CloseButton(props) {
+  const {onPress, id=-1, text} = props;
+  return (
+    <View style={styles.closeStyle}>
+      <TouchableOpacity onPress={onPress}>
+         <View>
+           <Banheiro style={{aspectRatio:1}} height={40} id={id}/>  
+         </View>
+      </TouchableOpacity>
+    </View>
+  )
+}
+
 export function SelectDeviceButton({text, onPress, textStyle}){
   return (
     <View style={{padding: 10}}>

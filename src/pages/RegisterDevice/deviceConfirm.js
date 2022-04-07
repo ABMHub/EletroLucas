@@ -1,6 +1,6 @@
 import styles from "./styles.js";
 import Header,{TaskBar} from "../../components/Navbar/navbar.js";
-import {ImageButton, SvgButton, SvgTxtButton, ConfirmButton, SelectDeviceButton, FinishButton} from "../../components/Button/button.js";
+import {ImageButton, SvgButton, SvgTxtButton, ConfirmButton, SelectDeviceButton, FinishButton, CloseButton} from "../../components/Button/button.js";
 import { StatusBar } from 'expo-status-bar';
 import {Modal, StyleSheet, Text, View, ScrollView, TextInput,Alert} from 'react-native';
 import { useEffect } from "react/cjs/react.production.min";
@@ -12,10 +12,10 @@ function navigationWrapper(data, navigation, nickname = "") {
 
     return () => {
         navigation.navigate('Home')
-        Alert.alert("", "Dispositivo cadastrado com Sucesso", [], {cancelable: true})
+        setTimeout(() => Alert.alert("", "Dispositivo cadastrado com Sucesso", [], {cancelable: true, }), 1)
     }
   }
-
+  
 export default function DeviceConfirm({route, navigation}) {
     // Recebe o id do dispositivo clicado
     var {data} = route.params
@@ -76,22 +76,27 @@ export default function DeviceConfirm({route, navigation}) {
                     onDismiss={toggleModalVisibility}>
                     <View style={styles.viewWrapper}>
                         <View style={styles.modalView}>
-                            <Text style={{paddingBottom:15, fontSize: 18}}> Deseja adicionar um apelido? </Text>
-                            <TextInput placeholder="Digite o apelido" 
-                                    value={inputValue} style={styles.textInput} 
-                                    onChangeText={(value) => setInputValue(value)} />
-    
-                            {/** This button is responsible to close the modal */}
-                            <View style={styles.button_line}> 
-                                <ConfirmButton id={20} text={"Não"} onPress={navigationWrapper(data, navigation)} />
-                                <ConfirmButton id={21} text={"Sim"} onPress={inputValue != "" ? navigationWrapper(data, navigation, inputValue) : () => Alert.alert("Nenhum apelido informado!")} />
+                        
+                            <CloseButton id={20} text={"Não"} onPress={toggleModalVisibility}/>    
+                            
+                            <View style={styles.confirmationStyle}>    
+                                <Text style={{paddingBottom:15, fontSize: 18}}> Deseja adicionar um apelido? </Text>
+                                <TextInput placeholder="Digite o apelido" 
+                                        value={inputValue} style={styles.textInput} 
+                                        onChangeText={(value) => setInputValue(value)} />
+        
+                                {/** This button is responsible to close the modal */}
+                                <View style={styles.button_line}> 
+                                    <ConfirmButton id={20} text={"Não"} onPress={navigationWrapper(data, navigation)} />
+                                    <ConfirmButton id={21} text={"Sim"} onPress={inputValue != "" ? navigationWrapper(data, navigation, inputValue) : () => Alert.alert("Nenhum apelido informado!")} />
+                                </View>
+                                {/** Aqui devo mudar o onPress pra redirecionar para outra pagina e enviar o 
+                                 * texto da input pro jv se o sujeito disser que quer colocar o apelido
+                                 * Se ele disser que quer e não digitar nada, devemos informar que nada foi informado
+                                 * Se ele disser que não é só seguir em frente
+                                 */}
+                                {/* <Button title="Concluir" onPress={toggleModalVisibility} /> */}
                             </View>
-                            {/** Aqui devo mudar o onPress pra redirecionar para outra pagina e enviar o 
-                             * texto da input pro jv se o sujeito disser que quer colocar o apelido
-                             * Se ele disser que quer e não digitar nada, devemos informar que nada foi informado
-                             * Se ele disser que não é só seguir em frente
-                             */}
-                            {/* <Button title="Concluir" onPress={toggleModalVisibility} /> */}
                         </View>
                     </View>
                 </Modal> 

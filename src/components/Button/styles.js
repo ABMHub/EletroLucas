@@ -69,6 +69,14 @@ const styles = StyleSheet.create({
      
     },
 
+    closeStyle: {
+      //height:'100%', 
+      aspectRatio:1,
+      alignSelf: 'flex-start',
+      paddingBottom: 250
+
+    },
+
     confirmStyle: {
       flexDirection: 'row',
       alignItems: 'center',
