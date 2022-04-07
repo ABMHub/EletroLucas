@@ -2,22 +2,81 @@ import { Text, View} from 'react-native';
 import Header,{TaskBar} from "../../components/Navbar/navbar";
 import styles from "./styles";
 import { StatusBar } from 'expo-status-bar';
-import React,{useState} from 'react';
-import {getAllJson, setObjectParam} from "../../model/JsonFunction.js"
-/*
+import React,{useState, useEffect} from 'react';
+import {getAllJson, setObjectParam} from "../../model/JsonFunction.js";
+
+function toTime(milliseconds) {
+    milliseconds = Number(milliseconds)
+    let timeScale = 'Milli.'
+    if(milliseconds < 1000) {
+        milliseconds = milliseconds
+    }
+    else if(milliseconds < 60*1000) {
+        milliseconds = milliseconds/1000
+        timeScale = 'Seg.'
+    }
+    else if(milliseconds < 60*60*1000) {
+        milliseconds = milliseconds/(60*1000)
+        timeScale = 'Min.'
+    }
+    else if(milliseconds < 24*60*60*1000) {
+        milliseconds = milliseconds/(60*60*1000)
+        timeScale = 'Horas'
+    }
+    else {
+        milliseconds = milliseconds/(24*60*60*1000)
+        timeScale = 'Dias'
+    }
+    return milliseconds.toString() + ' ' + timeScale
+}
+
 async function genInfoPair(best) {
     let names = []
     let graphs = []
+    if(best.length == 0) {
+        return [null,null, 'ih caralho']
+    }
 
-    for(i = 0; i < best.length; i++) {
-        let t = 5
+    let hex = [
+        "#72EE7E",
+        "#DDEE72",
+        "#F9CF66",
+        "#F4733C",    
+        "#FF0000",
+    ]
+    let base = best[0]['time']['changeArray'].reduce((pr,lc) => pr+lc)
+    let dvs = [
+        100
+    ]
+
+    for(i = 1; i < best.length; i++) {
+        let now = best[i]['time']['changeArray'].reduce((pr,lc) => pr + lc)
+        dvs.push(
+            Number(now/base)*100
+        )
     }
 
     for(i = 0; i < best.length; i++) {
+        names.push(
+            <View style={{flexDirection:'row'}}>
+               <View style={{width:"10%", height:"10%", backgroundColor:hex[i]}}></View> 
+               <Text>{best[i]['apelido']}</Text>
+            </View>
+        )    
     }
 
-    return [names,graphs]
-}*/
+    for(i = 0; i < best.length; i++) {
+        let percen = dvs[i].toString() + '%'
+        graphs.push(
+            <View>
+                <Text>{toTime(dvs[i]*base/100)}</Text>
+                <View style={{width:"20%", height:Number(), backgroundColor:hex[i]}}></View> 
+            </View>
+        )
+    }
+
+    return [names,graphs, 'we in']
+}
 
 async function readAndUpdate() {
     let dayMilli = 86400000
@@ -28,6 +87,7 @@ async function readAndUpdate() {
     for(let i = 0; i < jsons.length; i++){
         let dNow = Date.now()
         let diff = Math.floor(dNow/dayMilli)
+        
         if(jsons[i]['time']['changeDay'] < diff) {
             let ch = 0
             let idx = jsons[i]['time']['changeArray'].length
@@ -72,14 +132,17 @@ async function readAndUpdate() {
     for(i = 0; i < last; i++) {
         best.push(jsons[i])
     }
+    best.reverse()
     return await genInfoPair(best)
 }
 
 export default function DiagnosisPage({navigation}) {
-    const [elements, setState] = useState([null,null])
-    readAndUpdate().then((response) => {
-        setState(response)
-    })
+    const [elements, setState] = useState([null,null,'test kkkk'])
+    useEffect(() => {
+        readAndUpdate().then((response) => {
+            setState(response)
+        })
+    }, [])
 
     return (
     <>
@@ -93,7 +156,7 @@ export default function DiagnosisPage({navigation}) {
                 </View>
             </View>
             <View style={styles.dev_names}>
-                <Text>SHOOS</Text>
+                <Text>{elements[2]}</Text>
                 <View>
                     {elements[0]}
                 </View>
