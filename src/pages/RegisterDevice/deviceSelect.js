@@ -4,7 +4,7 @@ import Button,{ImageButton, SvgButton, SvgTxtButton, SelectDeviceButton} from ".
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView} from 'react-native';
 
-export default function SelectDevice({navigation}) {
+export default function DeviceConfirm({navigation}) {
   name_list = ["Lampada Verilog", "Lampada Positovo"]
   render_list = []
   
@@ -12,7 +12,7 @@ export default function SelectDevice({navigation}) {
   {
     render_list.push(
       <SelectDeviceButton
-        onPress={() => navigation.navigate('Test')}
+        onPress={() => navigation.navigate('DeviceConfirm')}
         id={i}
         key={i}
         text={name_list[i]}

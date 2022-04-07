@@ -28,6 +28,16 @@ export function BackButton({onPress}) {
   );
 }
 
+export function FinishButton({onPress}) {
+  return (
+    <View>
+      <Pressable style={styles.finishButton} onPress={onPress}>
+        <Text style={{fontSize: 20, color: "white", fontWeight: '700'}}> Finalizar </Text>
+      </Pressable>
+    </View>
+  );
+}
+
 export function ImageButton(props) {
   const {onPress, source} = props;
   return (
@@ -61,9 +71,25 @@ export function SvgTxtButton(props) {
          
       </TouchableOpacity>
     </View>
-
   )
 
+}
+
+export function ConfirmButton(props) {
+  const {onPress, id=-1, text} = props;
+  return (
+    <View style={{flexDirection: 'row'}}>
+ 
+      <TouchableOpacity style={styles.confirmStyle} onPress={onPress}>
+         <Text style={styles.TextStyle}> {text} </Text>   
+         
+         <View style={{height:'100%', aspectRatio:1}}>
+           <Banheiro style={{aspectRatio:1}} height={'100%'} id={id}/>  
+         </View>
+         
+      </TouchableOpacity>
+    </View>
+  )
 }
 
 export function SelectDeviceButton({text, onPress, textStyle}){
