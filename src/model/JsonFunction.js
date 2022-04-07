@@ -1,5 +1,4 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { get } from 'react-native/Libraries/Utilities/PixelRatio';
 
 export const getMyObject = async (key) => {
     try {
@@ -16,6 +15,16 @@ export const setObjectValue = async (key, value) => {
         await AsyncStorage.setItem(key, jsonValue)
     } catch(e){
         console.log("Erro ao editar/criar um objeto JSON")
+    }
+}
+
+export const setObjectParam = async (key,parameter, value) => {
+    try {
+        let obj = await getMyObject(key)
+        obj[parameter] = value
+        await setObjectValue(key,obj)
+    } catch(e) {
+        console.log('Erro ao editar parametro de objeto JSON')
     }
 }
 
