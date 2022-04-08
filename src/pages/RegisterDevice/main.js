@@ -39,7 +39,4 @@ export default function RegisterDevice({navigation}) {
             <TaskBar navigation={navigation}/>
         </>
     )
-
-
-
 }

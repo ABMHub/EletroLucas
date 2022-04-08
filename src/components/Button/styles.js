@@ -71,9 +71,10 @@ const styles = StyleSheet.create({
 
     closeStyle: {
       //height:'100%', 
+      backgroundColor: "black",
       aspectRatio:1,
       alignSelf: 'flex-start',
-      paddingBottom: 250
+      //paddingBottom: 250
 
     },
 

@@ -51,9 +51,14 @@ export default function DeviceConfirm({route, navigation}) {
   
     // Create toggleModalVisibility function that will
     // Open and close modal upon button clicks.
-    const toggleModalVisibility = () => {
+    
+    const 
+    
+    toggleModalVisibility = () => {
         setModalVisible(!isModalVisible);
     };
+
+    
 
     return (
         <>
@@ -70,7 +75,7 @@ export default function DeviceConfirm({route, navigation}) {
                 </View> */}
                 <View>{render_list}</View>
                 <FinishButton title='Finalizar' onPress={toggleModalVisibility} />
-                
+                {console.log("Infinito")}
                 {/** This is our modal component containing textinput and a button */}
                 <Modal animationType="slide" 
                     transparent visible={isModalVisible} 
@@ -79,7 +84,7 @@ export default function DeviceConfirm({route, navigation}) {
                     <View style={styles.viewWrapper}>
                         <View style={styles.modalView}>
                         
-                            <CloseButton id={20} text={"Não"} onPress={toggleModalVisibility}/>    
+                            <CloseButton id={20} onPress={toggleModalVisibility}/>    
                             
                             <View style={styles.confirmationStyle}>    
                                 <Text style={{paddingBottom:15, fontSize: 18}}> Deseja adicionar um apelido? </Text>

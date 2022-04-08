@@ -93,7 +93,7 @@ export function ConfirmButton(props) {
 }
 
 export function CloseButton(props) {
-  const {onPress, id=-1, text} = props;
+  const {onPress, id} = props;
   return (
     <View style={styles.closeStyle}>
       <TouchableOpacity onPress={onPress}>

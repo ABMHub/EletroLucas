@@ -4,12 +4,15 @@ import Header,{TaskBar} from "../../components/Navbar/navbar.js";
 import Button,{ImageButton, SvgButton} from "../../components/Button/button.js";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView} from 'react-native';
-import { getAllJson } from "../../model/JsonFunction.js";
+import { getAllJson, clearAll } from "../../model/JsonFunction.js";
 import { useState, useEffect } from "react";
 import { Alert } from "react-native-web";
+import { clear } from "react-native/Libraries/LogBox/Data/LogBoxData";
 
 export default function MainPage({navigation}) {
   //Vetor com todos os dispositivos que tem salvos
+  //clearAll()
+  
   const [state, setState] = useState(0);
 
   useEffect(() => 
