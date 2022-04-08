@@ -4,18 +4,34 @@ import Button,{ImageButton, SvgButton, SvgTxtButton, SelectDeviceButton} from ".
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView} from 'react-native';
 
-export default function DeviceConfirm({navigation}) {
-  name_list = ["Lampada Verilog", "Lampada Positovo"]
+function jsonWrapper(json, navigation) {
+  return () => navigation.navigate('DeviceConfirm', {"data":json})
+}
+
+export default function DeviceConfirm({route, navigation}) {
+  var {category} = route.params
   render_list = []
+
+  //Le todos os json cuja categoria eh igual a category
+  let json = require('./data.json');
+  let json_list = []
   
-  for (var i = 0; i < name_list.length; i++)
+  for (var i = 0; i < json.length; i++) 
+  {
+    if (json[i]['Categoria'] == category)
+    {
+      json_list.push(json[i])
+    }
+  }
+  
+  for (var i = 0; i < json_list.length; i++)
   {
     render_list.push(
       <SelectDeviceButton
-        onPress={() => navigation.navigate('DeviceConfirm')}
-        id={i}
+        onPress= {jsonWrapper(json_list[i], navigation)}
+        id={json_list[i].id}
         key={i}
-        text={name_list[i]}
+        text={json_list[i]["Nome do dispositivo"]}
         textStyle={styles.buttonTextStyle}
       />
     )

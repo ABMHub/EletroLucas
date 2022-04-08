@@ -4,16 +4,27 @@ import Header,{TaskBar} from "../../components/Navbar/navbar.js";
 import Button,{ImageButton, SvgButton} from "../../components/Button/button.js";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView} from 'react-native';
+import { getAllJson } from "../../model/JsonFunction.js";
+import { useState, useEffect } from "react";
+import { Alert } from "react-native-web";
 
 export default function MainPage({navigation}) {
-  var json = require('./data.json');
+  //Vetor com todos os dispositivos que tem salvos
+  const [state, setState] = useState(0);
+
+  useEffect(() => 
+    getAllJson().then((response) => {
+      setState(response)
+    }), []
+  )
+
   return (
     <>
       <Header navigation={navigation}/>
       <ScrollView style={styles.container}>
         <StatusBar style="auto" />
         <View style={styles.button_grid}>
-          {RenderButton(json, navigation)}
+          {RenderButton(state, navigation)}
         </View>
       </ScrollView >
       <TaskBar navigation={navigation}/>

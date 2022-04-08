@@ -5,6 +5,15 @@ import styles from "./styles.js";
 import { StyleSheet, Text, View, ScrollView, Alert } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
+function number(i)
+{
+  return i+1
+}
+
+function categoryWrapper(key, navigation) {
+  return () => navigation.navigate('SelectDevice', {"category":key+1})
+}
+
 export default function RegisterDevice({navigation}) {
     name_list = ["Smart TV", "Ar Condicionado", "Lâmpada", "Cafeteira", "Fechadura", "Outro"]
     render_list = []
@@ -13,7 +22,7 @@ export default function RegisterDevice({navigation}) {
     {
       render_list.push(
         <SvgTxtButton
-          onPress={name_list[i] == "Lâmpada" ? () => navigation.navigate('SelectDevice') : () => Alert.alert("Essa categoria não foi encontrada")}
+          onPress={name_list[i] == "Lâmpada" ? categoryWrapper(i, navigation) : () => Alert.alert("Essa categoria não foi encontrada")}
           id={i+10}
           key={i}
           text={name_list[i]}
@@ -24,9 +33,9 @@ export default function RegisterDevice({navigation}) {
     return (
         <>
             <Header navigation={navigation} current_page={"RegisterDevice"}/>
-            <ScrollView style={styles.container}>
+              <ScrollView style={styles.container}>
                 {render_list}
-            </ScrollView>
+              </ScrollView> 
             <TaskBar navigation={navigation}/>
         </>
     )

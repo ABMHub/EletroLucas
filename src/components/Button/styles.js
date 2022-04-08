@@ -69,10 +69,22 @@ const styles = StyleSheet.create({
      
     },
 
+    closeStyle: {
+      //height:'100%', 
+      aspectRatio:1,
+      alignSelf: 'flex-end',
+      // paddingBottom: 250,
+      // margin: 30,
+      marginRight: -10,
+      marginTop: -10,
+      marginBottom:15,
+
+    },
+
     confirmStyle: {
       flexDirection: 'row',
       alignItems: 'center',
-      backgroundColor: '#ECECF5',
+      backgroundColor: '#fdfdfd',
       borderRadius: 5 ,
       width: '60%',
       elevation: 3,

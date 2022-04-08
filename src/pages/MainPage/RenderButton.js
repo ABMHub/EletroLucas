@@ -19,8 +19,8 @@ export default function RenderButton(devices, navigation) {
     render_list.push(
       <Button
         key={-1}
-        onPress={() => navigation.navigate('Test')}
-        title="Go to notifications"
+        onPress={() => navigation.navigate('RegisterDevice')}
+        title="Adicionar Dispositivo"
         id={-1}
       />
     )
