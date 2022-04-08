@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,7 +13,14 @@ const styles = StyleSheet.create({
   powerButtonView: {
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 30
+    marginTop: 15,
+    paddingTop: 10,
+    backgroundColor: "#f0f0ff",
+    marginLeft: "27%",
+    marginRight: "27%",
+    borderRadius: 20,
+    elevation: 10,
+
   },
   powerButton: {
     backgroundColor: "#e0e0e0",
@@ -23,13 +31,27 @@ const styles = StyleSheet.create({
   },
   sliderView: {
     padding: "5%",
-    paddingBottom: 0
+    paddingBottom: 0,
+    marginBottom: 0
   },
   sliderText: {
+    marginTop: 0,
+    paddingTop: 0,
     color: "black",
     fontSize: 40,
     alignItems: 'center'
   },
+  colorPickerView: {
+    
+    flex: 1,
+    padding: 20,
+    paddingTop:0,
+    backgroundColor:"#f0f0ff",
+    margin: 25,
+    marginTop: 0,
+    borderRadius: 20,
+    elevation: 10,
+  }
 });
 
 export default styles

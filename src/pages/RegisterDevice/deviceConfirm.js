@@ -14,7 +14,7 @@ function navigationWrapper(data, navigation, nickname = "") {
 
     return () => {
         navigation.navigate('Home')
-        setTimeout(() => Alert.alert("", "Dispositivo cadastrado com Sucesso", [], {cancelable: true, }), 1)
+        Alert.alert("", "Dispositivo cadastrado com Sucesso")
     }
   }
   
