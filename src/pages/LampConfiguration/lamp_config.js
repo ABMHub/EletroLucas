@@ -2,19 +2,22 @@ import { getMyObject, setObjectValue } from "../../model/JsonFunction.js";
 import Header from "../../components/Navbar/navbar.js";
 import styles from "./styles.js";
 
+import { color } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
+import { useReducer } from "react/cjs/react.production.min";
 import { toHsv, fromHsv } from 'react-native-color-picker'
 import { Slider } from "@miblanchard/react-native-slider";
+import { useIsFocused } from "@react-navigation/native";
 import { ColorPicker } from "react-native-color-picker";
 import React, { useState, useEffect } from 'react';
 import { SvgXml } from "react-native-svg";
 import { Text, View } from 'react-native';
-import { useReducer } from "react/cjs/react.production.min";
-import { color } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
 export default function LampConfig({route, navigation}) {
-  const {objId} = route.params
+  const objId = route.params["id"]
+  // console.log(route.params)
 
+  const isFocused = useIsFocused();
   const [updateColor, setUpdateColor] = useState(false)
   const [connected, setConnected] = useState(false)
   const [lampObject, setLampObject] = useState(undefined)
@@ -38,13 +41,13 @@ export default function LampConfig({route, navigation}) {
     setObjectValue(objId, lampObject)
   },[lampObject])
 
-  // useEffect(() => {
-  //   if (!connected) return
-  //   setTimeout(() => setUpdateColor(!updateColor), 1000)
-  //   if (oldColorValue == colorValue) return
-  //   setOldColorValue(colorValue)
-  //   console.log("test")
-  // }, [connected, updateColor])
+  useEffect(() => {
+    if (!connected || !isFocused) return
+    const timeout = setTimeout(() => setUpdateColor(!updateColor), 1000)
+    if (oldColorValue == colorValue) return
+    setOldColorValue(colorValue)
+    return () => clearTimeout(timeout)
+  }, [connected, updateColor])
 
   useEffect(() => {
     if (!connected) return
