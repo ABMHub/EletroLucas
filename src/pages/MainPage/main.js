@@ -8,17 +8,19 @@ import { getAllJson, clearAll } from "../../model/JsonFunction.js";
 import { useState, useEffect } from "react";
 import { Alert } from "react-native-web";
 import { clear } from "react-native/Libraries/LogBox/Data/LogBoxData";
+import { useIsFocused } from "@react-navigation/native";
 
 export default function MainPage({navigation}) {
   //Vetor com todos os dispositivos que tem salvos
   //clearAll()
   
   const [state, setState] = useState(0);
+  const isFocused = useIsFocused();
 
   useEffect(() => 
-    getAllJson().then((response) => {
+    isFocused && getAllJson().then((response) => {
       setState(response)
-    }), []
+    }), [isFocused]
   )
 
   return (
