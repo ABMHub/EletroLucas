@@ -72,8 +72,12 @@ const styles = StyleSheet.create({
     closeStyle: {
       //height:'100%', 
       aspectRatio:1,
-      alignSelf: 'flex-start',
-      paddingBottom: 250
+      alignSelf: 'flex-end',
+      // paddingBottom: 250,
+      // margin: 30,
+      marginRight: -10,
+      marginTop: -10,
+      marginBottom:15,
 
     },
 

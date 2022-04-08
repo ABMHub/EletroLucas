@@ -79,8 +79,10 @@ export default function DeviceConfirm({route, navigation}) {
                     <View style={styles.viewWrapper}>
                         <View style={styles.modalView}>
                         
-                            <CloseButton id={20} text={"Não"} onPress={toggleModalVisibility}/>    
-                            
+                            <View style={{position: "relative"}}>
+                                <CloseButton id={22} text={"Não"} onPress={toggleModalVisibility}/>    
+                            </View>
+
                             <View style={styles.confirmationStyle}>    
                                 <Text style={{paddingBottom:15, fontSize: 18}}> Deseja adicionar um apelido? </Text>
                                 <TextInput placeholder="Digite o apelido" 

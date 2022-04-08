@@ -98,7 +98,7 @@ export function CloseButton(props) {
     <View style={styles.closeStyle}>
       <TouchableOpacity onPress={onPress}>
          <View>
-           <Banheiro style={{aspectRatio:1}} height={40} id={id}/>  
+           <Banheiro style={{aspectRatio:1}} height={30} id={id}/>  
          </View>
       </TouchableOpacity>
     </View>
