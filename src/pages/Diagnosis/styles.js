@@ -3,18 +3,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: "100%",
-        backgroundColor: '#FF0000',
+        backgroundColor: '#ECECF5',
         alignItems: 'center',
       },
       button_grid: {
-        width: "80%",
-        height: "55%",
+        width: "90%",
+        height: "65%",
         flexDirection: 'row',
-        backgroundColor: '#ECECF5',
+        backgroundColor: '#F8F7FE',
         padding: 10,
         margin: 20,
-        flexWrap: "wrap",
         borderRadius: 5,
+
       },
       txt: {
         paddingLeft: '5%',
@@ -22,10 +22,24 @@ const styles = StyleSheet.create({
         color: '#00FF00',
       },
       dev_names: {
-        width: "80%",
-        height: "25%",
-        backgroundColor: '#ECECF5',
+        width: "90%",
+        height: "19%",
+        backgroundColor: '#F8F7FE',
         borderRadius: 5,
+        position: 'absolute',
+        bottom: 0,
+        marginBottom: '15%',
+        flexDirection: 'column-reverse'
+      },
+      graphs: {
+        width: "100%",
+        height: "90%",
+        position: "absolute", 
+        bottom: 0,
+        left:0,
+        right: 0,
+        marginLeft: "4%",
+        flexDirection: 'row-reverse',
       }
 });
 export default styles;

@@ -12,6 +12,7 @@ import { ColorPicker } from "react-native-color-picker";
 import React, { useState, useEffect } from 'react';
 import { SvgXml } from "react-native-svg";
 import { Text, View } from 'react-native';
+import { updateTime } from "../Diagnosis/main.js";
 
 export default function LampConfig({route, navigation}) {
   const objId = route.params["id"]
@@ -56,7 +57,12 @@ export default function LampConfig({route, navigation}) {
       "intensity": oldLightValue,
       "isOn": online
     }
-    setLampObject({...lampObject, "configs": configObj})
+    let device = {...lampObject}
+    console.log('entering')
+    device = updateTime(device)[0]
+    console.log('exiting')
+    
+    setLampObject({...device, "configs": configObj})
   }, [online, oldColorValue, oldLightValue])
 
   useEffect(() => {

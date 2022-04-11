@@ -4,20 +4,22 @@ import styles from "./styles";
 import { StatusBar } from 'expo-status-bar';
 import React,{useState, useEffect} from 'react';
 import {getAllJson, setObjectParam} from "../../model/JsonFunction.js";
+import { useIsFocused } from "@react-navigation/native";
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 function toTime(milliseconds) {
     milliseconds = Number(milliseconds)
-    let timeScale = 'Milli.'
+    let timeScale = 'Millisegundos'
     if(milliseconds < 1000) {
         milliseconds = milliseconds
     }
     else if(milliseconds < 60*1000) {
         milliseconds = milliseconds/1000
-        timeScale = 'Seg.'
+        timeScale = 'Segundos'
     }
     else if(milliseconds < 60*60*1000) {
         milliseconds = milliseconds/(60*1000)
-        timeScale = 'Min.'
+        timeScale = 'Minutos'
     }
     else if(milliseconds < 24*60*60*1000) {
         milliseconds = milliseconds/(60*60*1000)
@@ -27,102 +29,145 @@ function toTime(milliseconds) {
         milliseconds = milliseconds/(24*60*60*1000)
         timeScale = 'Dias'
     }
-    return milliseconds.toString() + ' ' + timeScale
+    return Math.floor(milliseconds).toString() + ' ' + timeScale
 }
 
 async function genInfoPair(best) {
     let names = []
     let graphs = []
     if(best.length == 0) {
-        return [null,null, 'ih caralho']
+        return [null,null]
     }
 
     let hex = [
-        "#72EE7E",
-        "#DDEE72",
-        "#F9CF66",
-        "#F4733C",    
         "#FF0000",
+        "#F9CF66",
+        "#72EE7E",            
     ]
     let base = best[0]['time']['changeArray'].reduce((pr,lc) => pr+lc)
     let dvs = [
-        100
+        Number(100)
     ]
 
     for(i = 1; i < best.length; i++) {
-        let now = best[i]['time']['changeArray'].reduce((pr,lc) => pr + lc)
-        dvs.push(
-            Number(now/base)*100
-        )
+        let now = best[i]['time']['changeArray'].reduce((pr,lc) => pr + lc,0)
+        if(now === 0){
+            dvs.push(100)
+        }
+        else{
+            dvs.push(
+                Number(now/base)*100
+            )
+        }
     }
-
+    let margTV = [13, 5, 3]
     for(i = 0; i < best.length; i++) {
+        let nick = best[i]['Apelido'] == "" ? best[i]['Nome do dispositivo']: best[i]['Apelido']
         names.push(
-            <View style={{flexDirection:'row'}}>
-               <View style={{width:"10%", height:"10%", backgroundColor:hex[i]}}></View> 
-               <Text>{best[i]['apelido']}</Text>
+            <View style={{flex: 1, flexDirection: 'row'}} key={`names${i}`}>
+               <View style={{width:"8%", height:'100%',backgroundColor:hex[i]}}></View> 
+               <Text style={{marginTop:`${margTV[best.length-1]}%`,marginLeft:'10%', color:hex[i], fontSize:15}}>{nick}</Text>
             </View>
         )    
     }
-
+    let margB = best.length == 1 ? 190 : (best.length == 2 ? 205: 355);
+    let margH = best.length == 1 ? 28 : 5;
     for(i = 0; i < best.length; i++) {
-        let percen = dvs[i].toString() + '%'
+         
         graphs.push(
-            <View>
-                <Text>{toTime(dvs[i]*base/100)}</Text>
-                <View style={{width:"20%", height:Number(), backgroundColor:hex[i]}}></View> 
+            <View key={`graphs${i}`} style={{flex:1, marginHorizontal: `${margH}%`}}>
+                <Text style={graphTextStyle(dvs[i],hex[i], margB)}>{toTime(dvs[i]*base/100)}</Text>
+                <View style={graphStyle(dvs[i], hex[i])}></View> 
             </View>
         )
     }
+    return [names,graphs]
+}
 
-    return [names,graphs, 'we in']
+function graphTextStyle(lH,col, margB) {
+    return {
+        color: col,
+        textAlign: 'center',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        marginBottom: `${margB*lH/100}%`,
+    }
+}
+
+function graphStyle(lH, col) {
+    return {
+        height:`${0.85*lH}%`,
+        
+        backgroundColor:col,
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        borderTopLeftRadius: 8,
+        borderTopRightRadius: 8,
+        elevation: 3,
+    }
+}
+
+export function updateTime(obj) {
+    let dayMilli = 86400000
+    let dNow = Date.now()
+    let diff = Math.floor(dNow/dayMilli)
+    let flag = false
+    if(obj['time']['dayChange'] === 0){
+        obj['time']['dayChange'] = diff;
+        obj['time']['changeArray'].push(0)
+        obj['time']['lastChange'] = dNow
+        flag = true
+    }
+    else if(obj['time']['dayChange'] < diff) {
+        let ch = 0
+        let idx = obj['time']['changeArray'].length
+        let hp = obj['time']['lastChange']
+        hp = Math.ceil(hp/dayMilli)*dayMilli - hp 
+        obj['time']['changeArray'][idx-1] += hp 
+
+        if (obj['configs']['isOn']) {
+            ch = dNow - obj['time']['lastChange'] - hp
+        }
+        for(let j = 1; j < diff - obj['time']['dayChange']; j++) {
+            obj['time']['changeArray'].push(Math.min(ch,dayMilli))
+            ch -= dayMilli
+        }
+        idx = obj['time']['changeArray'].length
+        let last = Math.max(0,idx-30)
+        for(let j = 0; j < last; j++) {
+            obj['time']['changeArray'].shift()
+        }
+        obj['time']['dayChange'] = diff
+        flag = true
+    }
+    else if(obj['configs']['isOn']) {
+        let idx = obj['time']['changeArray'].length;
+        obj['time']['changeArray'][idx-1] += dNow - obj['time']['lastChange']
+        flag = true
+    }
+    obj['time']['lastChange'] = dNow;
+    return [obj,flag]
 }
 
 async function readAndUpdate() {
-    let dayMilli = 86400000
     let best = []
     let jsons = await getAllJson()
     let changes = []
     
     for(let i = 0; i < jsons.length; i++){
-        let dNow = Date.now()
-        let diff = Math.floor(dNow/dayMilli)
-        
-        if(jsons[i]['time']['changeDay'] < diff) {
-            let ch = 0
-            let idx = jsons[i]['time']['changeArray'].length
-            let hp = jsons[i]['time']['lastChange']
-            hp = Math.ceil(hp/dayMilli)*dayMilli - hp 
-            jsons[i]['time']['changeArray'][idx-1] += hp 
-
-            if (jsons[i]['configs']['isOn']) {
-                ch = dNow - jsons[i]['time']['lastChange'] - hp
-            }
-            for(let j = 1; j < diff - jsons[i]['time']['changeDay']; j++) {
-                jsons[i]['time']['changeArray'].push(Math.min(ch,dayMilli))
-                ch -= dayMilli
-            }
-            idx = jsons[i]['time']['changeArray'].length
-            let last = Math.max(0,idx-30)
-            for(let j = 0; j < last; j++) {
-                jsons[i]['time']['changeArray'].shift()
-            }
-
-            jsons[i]['time']['changeDay'] = diff
+        let res = updateTime(jsons[i])
+        jsons[i] = res[0]
+        if(res[1]) {
             changes.push(i)
         }
-        else if(jsons[i]['configs']['isOn']) {
-            let idx = jsons[i]['time']['changeArray'].length;
-            if(idx == 0) {
-                jsons[i]['time']['changeArray'].push(0)
-            }
-            jsons[i]['time']['changeArray'] += dNow - jsons[i]['time']['lastChange']
-            changes.push(i)
-        }
-        jsons[i]['time']['lastChange'] = dNow;
     }
     for(i = 0; i < changes.length; i++) {
-        setObjectParam(Number(changes[i]).toString(), 'time', jsons[changes[i]]['time'])
+        setObjectParam(jsons[changes[i]]['id'], 'time', jsons[changes[i]]['time'])
+        console.log(Number(changes[i] + 1).toString(), 'time', jsons[changes[i]]['time'])
     }
     jsons.sort((a,b) => {
         return ( b['time']['changeArray'].reduce((pr,lc) => pr + lc) - 
@@ -132,18 +177,18 @@ async function readAndUpdate() {
     for(i = 0; i < last; i++) {
         best.push(jsons[i])
     }
-    best.reverse()
     return await genInfoPair(best)
 }
 
 export default function DiagnosisPage({navigation}) {
-    const [elements, setState] = useState([null,null,'test kkkk'])
+    const [elements, setState] = useState([null,null])
+    const isFocused = useIsFocused();
     useEffect(() => {
         readAndUpdate().then((response) => {
             setState(response)
         })
-    }, [])
-
+    }, [isFocused])
+    
     return (
     <>
         <Header navigation={navigation}/>
@@ -151,15 +196,12 @@ export default function DiagnosisPage({navigation}) {
             <StatusBar style="auto"/>
             <View style={styles.button_grid}>
                 <Text style={styles.txt}>Quantidade de dias que os aparelhos ficaram ligados</Text>
-                <View>
+                <View style={styles.graphs}>
                     {elements[1]}
                 </View>
             </View>
             <View style={styles.dev_names}>
-                <Text>{elements[2]}</Text>
-                <View>
-                    {elements[0]}
-                </View>
+                {elements[0]}
             </View>
         </View>
         <TaskBar navigation={navigation}/>
