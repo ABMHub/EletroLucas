@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
         right: 0,
         marginLeft: "4%",
         flexDirection: 'row-reverse',
+        alignItems: 'flex-end',
       }
 });
 export default styles;

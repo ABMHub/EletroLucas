@@ -68,41 +68,34 @@ async function genInfoPair(best) {
             </View>
         )    
     }
-    let margB = [190, 205, 355, 395, 460]
-    let margH = [28, 5, 3, 2, 1]
+
     for(i = 0; i < best.length; i++) {
          
         graphs.push(
-            <View key={`graphs${i}`} style={{flex:1, marginHorizontal: `${margH[best.length-1]}%`}}>
-                <Text style={graphTextStyle(dvs[i],hex[i], margB[best.length-1])}>{toTime(dvs[i]*base/100)}</Text>
-                <View style={graphStyle(dvs[i], hex[i])}></View> 
+            <View key={`graphs${i}`} style={{flex: 1, margin: '1%'}}>
+                <View style={{height:`${10 + 0.9*dvs[i]}%`, maxWidth: 75}}>
+                    <Text style={graphTextStyle(hex[i])}>{toTime(dvs[i]*base/100)}</Text>
+                    <View style={graphStyle(hex[i])}></View> 
+                </View>
             </View>
         )
     }
+
     return [names,graphs]
 }
 
-function graphTextStyle(lH,col, margB) {
+function graphTextStyle(col) {
     return {
+        flex: 0,
         color: col,
         textAlign: 'center',
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        marginBottom: `${margB*lH/100}%`,
     }
 }
 
-function graphStyle(lH, col) {
+function graphStyle(col) {
     return {
-        height:`${0.85*lH}%`,
-        
+        flex: 1,
         backgroundColor:col,
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
         elevation: 3,
