@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
   infoContainerStyle: {
     flex: 1,
     margin: 17,
+    marginBottom: 10,
     padding: 3,
     borderBottomWidth: 2,
     borderColor: "#8F8F8F",

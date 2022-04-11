@@ -10,10 +10,7 @@ import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNat
 function toTime(milliseconds) {
     milliseconds = Number(milliseconds)
     let timeScale = 'Millisegundos'
-    if(milliseconds < 1000) {
-        milliseconds = milliseconds
-    }
-    else if(milliseconds < 60*1000) {
+    if(milliseconds < 60*1000) {
         milliseconds = milliseconds/1000
         timeScale = 'Segundos'
     }
@@ -41,8 +38,10 @@ async function genInfoPair(best) {
 
     let hex = [
         "#FF0000",
+        '#FF814B',
         "#F9CF66",
-        "#72EE7E",            
+        "#72EE7E",
+        '#88CEF4',            
     ]
     let base = best[0]['time']['changeArray'].reduce((pr,lc) => pr+lc)
     let dvs = [
@@ -51,7 +50,7 @@ async function genInfoPair(best) {
 
     for(i = 1; i < best.length; i++) {
         let now = best[i]['time']['changeArray'].reduce((pr,lc) => pr + lc,0)
-        if(now === 0){
+        if(base === 0){
             dvs.push(100)
         }
         else{
@@ -60,7 +59,7 @@ async function genInfoPair(best) {
             )
         }
     }
-    let margTV = [13, 5, 3]
+    let margTV = [13, 5, 3, 1, 0]
     for(i = 0; i < best.length; i++) {
         let nick = best[i]['Apelido'] == "" ? best[i]['Nome do dispositivo']: best[i]['Apelido']
         names.push(
@@ -70,13 +69,13 @@ async function genInfoPair(best) {
             </View>
         )    
     }
-    let margB = best.length == 1 ? 190 : (best.length == 2 ? 205: 355);
-    let margH = best.length == 1 ? 28 : 5;
+    let margB = [190, 205, 355, 395, 460]
+    let margH = [28, 5, 3, 2, 1]
     for(i = 0; i < best.length; i++) {
          
         graphs.push(
-            <View key={`graphs${i}`} style={{flex:1, marginHorizontal: `${margH}%`}}>
-                <Text style={graphTextStyle(dvs[i],hex[i], margB)}>{toTime(dvs[i]*base/100)}</Text>
+            <View key={`graphs${i}`} style={{flex:1, marginHorizontal: `${margH[best.length-1]}%`}}>
+                <Text style={graphTextStyle(dvs[i],hex[i], margB[best.length-1])}>{toTime(dvs[i]*base/100)}</Text>
                 <View style={graphStyle(dvs[i], hex[i])}></View> 
             </View>
         )
@@ -161,13 +160,14 @@ async function readAndUpdate() {
     for(let i = 0; i < jsons.length; i++){
         let res = updateTime(jsons[i])
         jsons[i] = res[0]
+        console.log(jsons[i]['Apelido'], jsons[i]['Nome do dispositivo'], jsons[i]['id'])
         if(res[1]) {
             changes.push(i)
         }
     }
     for(i = 0; i < changes.length; i++) {
         setObjectParam(jsons[changes[i]]['id'], 'time', jsons[changes[i]]['time'])
-        console.log(Number(changes[i] + 1).toString(), 'time', jsons[changes[i]]['time'])
+        console.log(jsons[changes[i]]['id'], 'time', jsons[changes[i]]['time'])
     }
     jsons.sort((a,b) => {
         return ( b['time']['changeArray'].reduce((pr,lc) => pr + lc) - 

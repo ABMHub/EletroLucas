@@ -52,9 +52,9 @@ const styles = StyleSheet.create({
 
     TextStyle :{
       color: "#67D1B1",
-      marginBottom : 4,
+      marginBottom : 0,
       marginRight :0,
-      fontSize: 18
+      fontSize: 17
     },
 
     TxtButtonStyle: {

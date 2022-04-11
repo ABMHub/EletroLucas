@@ -1,13 +1,13 @@
 [
     {
         "Apelido": "Lucas",
-        "Nome do dispositivo": "Positivoloucura 1",
-        "Fabricante": "Verilog",
-        "Modelo": "Smart2.0",
+        "Nome do dispositivo": "LED Colors",
+        "Fabricante": "Elgin",
+        "Modelo": "Smart",
         "ENCE": "A+",
-        "Voltagem": "220v",
+        "Voltagem": "110/220v",
         "idIcon": 12,
-        "id": "1",
+        "id": "0",
         "Categoria": 3,
 
         "time": {
@@ -27,13 +27,38 @@
     },
     {
         "Apelido": "Lucas",
-        "Nome do dispositivo": "Positivoloucura 2",
-        "Fabricante": "Verilog",
-        "Modelo": "Smart2.0",
+        "Nome do dispositivo": "Lampada Inteligente EWS 407",
+        "Fabricante": "Intelbras",
+        "Modelo": "EWS 407",
         "ENCE": "A+",
-        "Voltagem": "220v",
+        "Voltagem": "110/220v",
         "idIcon": 12,
-        "id": "2",
+        "id": "0",
+        "Categoria": 3,
+        "time": {
+            "changeArray": [],
+            "lastChange": 0,
+            "dayChange": 0 
+        },
+        "configs": {
+            "isOn": false,
+            "intensity": 0,
+            "hsv": {
+                "h": 0,
+                "s": 0,
+                "v":0
+            }
+        } 
+    },
+    {
+        "Apelido": "Lucas",
+        "Nome do dispositivo": "Lampada Casa Conectada",
+        "Fabricante": "Positivo Casa Inteligente",
+        "Modelo": "Kit Casa Conectada",
+        "ENCE": "A+",
+        "Voltagem": "110/220v",
+        "idIcon": 12,
+        "id": "0",
         "Categoria": 3,
 
         "time": {
@@ -53,13 +78,39 @@
     },
     {
         "Apelido": "Lucas",
-        "Nome do dispositivo": "Positivoloucura 3",
-        "Fabricante": "Verilog",
-        "Modelo": "Smart2.0",
+        "Nome do dispositivo": "Lampada Wi-Fi Quente e Frio",
+        "Fabricante": "Positivo Casa Inteligente",
+        "Modelo": "9W Quente e Frio",
         "ENCE": "A+",
-        "Voltagem": "220v",
+        "Voltagem": "110/220v",
         "idIcon": 12,
-        "id": "3",
+        "id": "0",
+        "Categoria": 3,
+
+        "time": {
+            "changeArray": [],
+            "lastChange": 0,
+            "dayChange": 0 
+        },
+        "configs": {
+            "isOn": false,
+            "intensity": 0,
+            "hsv": {
+                "h": 0,
+                "s": 0,
+                "v":0
+            }
+        } 
+    },
+    {
+        "Apelido": "Lucas",
+        "Nome do dispositivo": "Lampada inteligente RGBW",
+        "Fabricante": "RSmart",
+        "Modelo": "RGBW",
+        "ENCE": "A+",
+        "Voltagem": "110/220v",
+        "idIcon": 12,
+        "id": "0",
         "Categoria": 3,
 
         "time": {
@@ -77,5 +128,4 @@
             }
         } 
     }
-
 ]

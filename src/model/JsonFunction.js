@@ -18,6 +18,16 @@ export const setObjectValue = async (key, value) => {
     }
 }
 
+export const pushObject = async (obj) => {
+    try {
+        const size = Number((await getAllKeys()).length + 1).toString()
+        obj['id'] = size
+        await setObjectValue(obj['id'], obj)
+    } catch(e) {
+        console.log('Erro ao adicionar dispositivo como objeto JSON')
+    }
+}
+
 export const setObjectParam = async (key,parameter, value) => {
     try {
         let obj = await getMyObject(key)

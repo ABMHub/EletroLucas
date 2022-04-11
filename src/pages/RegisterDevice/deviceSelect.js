@@ -29,7 +29,6 @@ export default function DeviceConfirm({route, navigation}) {
     render_list.push(
       <SelectDeviceButton
         onPress= {jsonWrapper(json_list[i], navigation)}
-        id={json_list[i].id}
         key={i}
         text={json_list[i]["Nome do dispositivo"]}
         textStyle={styles.buttonTextStyle}
