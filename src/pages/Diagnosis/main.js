@@ -5,7 +5,6 @@ import { StatusBar } from 'expo-status-bar';
 import React,{useState, useEffect} from 'react';
 import {getAllJson, setObjectParam} from "../../model/JsonFunction.js";
 import { useIsFocused } from "@react-navigation/native";
-import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 function toTime(milliseconds) {
     milliseconds = Number(milliseconds)
@@ -184,10 +183,13 @@ export default function DiagnosisPage({navigation}) {
     const [elements, setState] = useState([null,null])
     const isFocused = useIsFocused();
     useEffect(() => {
-        readAndUpdate().then((response) => {
-            setState(response)
-        })
-    }, [isFocused])
+        const interval = setInterval(() => {
+            readAndUpdate().then((response) => {
+                setState(response)
+            })
+        }, 1000)
+        return () => clearInterval(interval)
+    },  [isFocused])
     
     return (
     <>

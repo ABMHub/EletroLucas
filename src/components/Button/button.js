@@ -12,7 +12,7 @@ export default function Button(props) {
     <View style={styles.button_div}>
       <Pressable style={styles.button} onPress={onPress}>
         <Banheiro height={"70%"} width={"70%"} id={id}/>
-        <View><Text>{title}</Text></View>
+        <View><Text style={{textAlign:'center'}}>{title}</Text></View>
       </Pressable>
     </View>
   );
