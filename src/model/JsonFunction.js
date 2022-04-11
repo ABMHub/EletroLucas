@@ -97,23 +97,23 @@ export const clearAll = async () => {
 
 
 /* Funcao de teste das operacoes da camada de persistencia */
-export async function TestFunc(y=0, id=0){
-    // if(id == "0"){
-    //     y = {"nome": "Lucas", "idade": 21, "profissao": "caotico"}
-    // }
-    // else if(id == "1"){
-    //     y = {"nome": "Alequi", "idade": 20, "profissao": "bobao"}
-    // }
-    // else{
-    //     y = {"nome": "Joao", "idade": 20, "profissao": "ditador"}
-    // }
+// export async function TestFunc(y=0, id=0){
+//     // if(id == "0"){
+//     //     y = {"nome": "Lucas", "idade": 21, "profissao": "caotico"}
+//     // }
+//     // else if(id == "1"){
+//     //     y = {"nome": "Alequi", "idade": 20, "profissao": "bobao"}
+//     // }
+//     // else{
+//     //     y = {"nome": "Joao", "idade": 20, "profissao": "ditador"}
+//     // }
 
-    // await setObjectValue(id, y)
-    // let x = await getMyObject(id)
-    // await clearAll()
-    await removeValue("1")
-    let k = await getAllKeys()
-    let v = await getAllJson()
-    console.log(v)
-    console.log(k)
-}
+//     // await setObjectValue(id, y)
+//     // let x = await getMyObject(id)
+//     // await clearAll()
+//     await removeValue("1")
+//     let k = await getAllKeys()
+//     let v = await getAllJson()
+//     console.log(v)
+//     console.log(k)
+// }

@@ -58,9 +58,7 @@ export default function LampConfig({route, navigation}) {
       "isOn": online
     }
     let device = {...lampObject}
-    console.log('entering')
     device = updateTime(device)[0]
-    console.log('exiting')
     
     setLampObject({...device, "configs": configObj})
   }, [online, oldColorValue, oldLightValue])

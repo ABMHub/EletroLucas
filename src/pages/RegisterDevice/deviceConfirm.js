@@ -73,7 +73,6 @@ export default function DeviceConfirm({route, navigation}) {
                 </View> */}
                 <View>{render_list}</View>
                 <FinishButton title='Finalizar' onPress={toggleModalVisibility} />
-                {console.log("Infinito")}
                 {/** This is our modal component containing textinput and a button */}
                 <Modal animationType="slide" 
                     transparent visible={isModalVisible} 

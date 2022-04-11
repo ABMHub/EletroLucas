@@ -64,7 +64,7 @@ export function TaskBar({navigation}) {
   let pathName = [
     'Home',
     'RegisterDevice',
-    'Group',
+    'Home',
     'Diagnosis',
     'Home'
   ]

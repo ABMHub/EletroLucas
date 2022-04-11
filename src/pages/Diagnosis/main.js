@@ -159,14 +159,12 @@ async function readAndUpdate() {
     for(let i = 0; i < jsons.length; i++){
         let res = updateTime(jsons[i])
         jsons[i] = res[0]
-        console.log(jsons[i]['Apelido'], jsons[i]['Nome do dispositivo'], jsons[i]['id'])
         if(res[1]) {
             changes.push(i)
         }
     }
     for(i = 0; i < changes.length; i++) {
         setObjectParam(jsons[changes[i]]['id'], 'time', jsons[changes[i]]['time'])
-        console.log(jsons[changes[i]]['id'], 'time', jsons[changes[i]]['time'])
     }
     jsons.sort((a,b) => {
         return ( b['time']['changeArray'].reduce((pr,lc) => pr + lc) - 
