@@ -58,13 +58,13 @@ async function genInfoPair(best) {
             )
         }
     }
-    let margTV = [13, 5, 3, 1, 0]
+    //let margTV = [13, 5, 3, 1, 0]
     for(i = 0; i < best.length; i++) {
         let nick = best[i]['Apelido'] == "" ? best[i]['Nome do dispositivo']: best[i]['Apelido']
         names.push(
             <View style={{flex: 1, flexDirection: 'row'}} key={`names${i}`}>
                <View style={{width:"8%", height:'100%',backgroundColor:hex[i]}}></View> 
-               <Text style={{marginTop:`${margTV[best.length-1]}%`,marginLeft:'10%', color:hex[i], fontSize:15}}>{nick}</Text>
+               <Text style={{alignSelf: 'center',marginLeft:'10%', color:hex[i], fontSize:15}}>{nick}</Text>
             </View>
         )    
     }
