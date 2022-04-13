@@ -3,14 +3,38 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
   test: {
-    color: 'green'
+    color: 'white',
+    fontSize: 30
   },
-  container: {
-    flex: 1,
-    backgroundColor: 'blue',
-    alignItems: 'center',
+  buttons: {
+    flexDirection: 'row',
+    paddingTop: 35,
+    paddingLeft: 20
+  },
+  imgBackground: {
+    height: '100%',
+    width: "100%"
+  },
+
+  bkg: {
+    position: 'relative',
+    marginLeft:'5%',
+    marginRight: '5%',
     justifyContent: 'center',
-                                                                        
+    borderRadius: 6,
+    elevation: 3,
+    backgroundColor: "#fdfdfd",
+    margin: 5
+  },
+  footer: {
+    flex:0.10,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    backgroundColor: '#F7F7F7',
   },
 });
 

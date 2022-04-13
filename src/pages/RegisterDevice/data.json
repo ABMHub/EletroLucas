@@ -1,0 +1,131 @@
+[
+    {
+        "Apelido": "Lucas",
+        "Nome do dispositivo": "LED Colors",
+        "Fabricante": "Elgin",
+        "Modelo": "Smart",
+        "ENCE": "A+",
+        "Voltagem": "110/220v",
+        "idIcon": 12,
+        "id": "0",
+        "Categoria": 3,
+
+        "time": {
+            "changeArray": [],
+            "lastChange": 0,
+            "dayChange": 0 
+        },
+        "configs": {
+            "isOn": false,
+            "intensity": 0,
+            "hsv": {
+                "h": 100,
+                "s": 0.75,
+                "v": 0.5
+            }
+        } 
+    },
+    {
+        "Apelido": "Lucas",
+        "Nome do dispositivo": "Lampada Inteligente EWS 407",
+        "Fabricante": "Intelbras",
+        "Modelo": "EWS 407",
+        "ENCE": "A+",
+        "Voltagem": "110/220v",
+        "idIcon": 12,
+        "id": "0",
+        "Categoria": 3,
+        "time": {
+            "changeArray": [],
+            "lastChange": 0,
+            "dayChange": 0 
+        },
+        "configs": {
+            "isOn": false,
+            "intensity": 0,
+            "hsv": {
+                "h": 100,
+                "s": 0.75,
+                "v": 0.5
+            }
+        } 
+    },
+    {
+        "Apelido": "Lucas",
+        "Nome do dispositivo": "Lampada Casa Conectada",
+        "Fabricante": "Positivo Casa Inteligente",
+        "Modelo": "Kit Casa Conectada",
+        "ENCE": "A+",
+        "Voltagem": "110/220v",
+        "idIcon": 12,
+        "id": "0",
+        "Categoria": 3,
+
+        "time": {
+            "changeArray": [],
+            "lastChange": 0,
+            "dayChange": 0 
+        },
+        "configs": {
+            "isOn": false,
+            "intensity": 0,
+            "hsv": {
+                "h": 100,
+                "s": 0.75,
+                "v": 0.5
+            }
+        } 
+    },
+    {
+        "Apelido": "Lucas",
+        "Nome do dispositivo": "Lampada Wi-Fi Quente e Frio",
+        "Fabricante": "Positivo Casa Inteligente",
+        "Modelo": "9W Quente e Frio",
+        "ENCE": "A+",
+        "Voltagem": "110/220v",
+        "idIcon": 12,
+        "id": "0",
+        "Categoria": 3,
+
+        "time": {
+            "changeArray": [],
+            "lastChange": 0,
+            "dayChange": 0 
+        },
+        "configs": {
+            "isOn": false,
+            "intensity": 0,
+            "hsv": {
+                "h": 100,
+                "s": 0.75,
+                "v": 0.5
+            }
+        } 
+    },
+    {
+        "Apelido": "Lucas",
+        "Nome do dispositivo": "Lampada inteligente RGBW",
+        "Fabricante": "RSmart",
+        "Modelo": "RGBW",
+        "ENCE": "A+",
+        "Voltagem": "110/220v",
+        "idIcon": 12,
+        "id": "0",
+        "Categoria": 3,
+
+        "time": {
+            "changeArray": [],
+            "lastChange": 0,
+            "dayChange": 0 
+        },
+        "configs": {
+            "isOn": false,
+            "intensity": 0,
+            "hsv": {
+                "h": 100,
+                "s": 0.75,
+                "v": 0.5
+            }
+        } 
+    }
+]
