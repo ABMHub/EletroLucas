@@ -5,8 +5,9 @@ export const styles = StyleSheet.create({
         position: 'relative',
         marginBottom:'35%',
         fontSize:36,
-        // fontFamily:'monospace',
+        fontFamily:'monospace',
         color: 'white',
+        paddingLeft: "5%",
     },
     input: {
         height: 40,

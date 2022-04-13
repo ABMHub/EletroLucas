@@ -30,7 +30,7 @@ export default function LoginPage({navigation}) {
     return (
             <View style={styles.container}>
                 <ImageBackground source={image} resizeMode= "cover" style={LoginImage.container}>
-                    <Text style={styles.title}>ABMHUB</Text>
+                    <Text style={styles.title}>EletroLucas</Text>
                     <View style={styles.bkg}>
                         <UselessTextInput></UselessTextInput>
                          <View style={styles.btt}>
